@@ -1,2 +1,2 @@
 # coddingDream
-this is my codding dream, codding for it !!
+this is my codding dream, go for it !!

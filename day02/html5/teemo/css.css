@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 40px 0;
+  position: absolute;
+  color: #440a0e;
+}
+
+.main-content {
+  width: 1195px;
+  height: 896px;
+  margin: 0 auto;
+  background: url(http://lol.qq.com/act/a20161020teemo/_img/click/bg.jpg) no-repeat;
+  position: relative;
+  background-size: cover;
+}
+
+/* 炉子样式 */
+.catwalk-left {
+  bottom: 62px;
+  left: 0;
+  width: 598px;
+  height: 538px;
+  background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/catwalk-left.png);
+}
+
+.asset {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.smoke {
+  width: 50.5%;
+  height: 37.7%;
+  top: 17.8%;
+  left: 36.3%;
+  z-index: 10;
+  background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/_smoke2.png);
+  background-size: auto 100%;
+  animation: smokeAnimation 1.2s infinite steps(5);
+  opacity: .2;
+}
+
+.cauldron-container {
+  position: absolute;
+  width: 611px;
+  height: 574px;
+  bottom: 170px;
+  left: 367px;
+}
+
+.cauldron {
+  width: 100%;
+  height: 50%;
+  left: 0;
+  bottom: 0;
+  background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/cauldron.png);
+  background-size: auto 100%;
+}
+
+.fire-container {
+  position: absolute;
+  width: 20%;
+  height: 40%;
+  bottom: 7%;
+  left: 41.4%;
+  z-index: 1;
+}
+
+.fire, .highlights {
+  width: 140%;
+  height: 102%;
+  top: 21%;
+  left: -14%;
+  background-image: url(http://lol.qq.com/act/a20161020teemo/_img/click/fires.png);
+  background-size: auto 100%;
+  opacity: .2;
+}
+
+.fire{
+  transform-origin: 50% 64%;
+  animation: frameAnimation 0.4s infinite steps(1);
+}
+
+@keyframes frameAnimation {
+  0% {
+    background-position: 0;
+  }
+
+  60%{
+    background-position: 25%;
+    transform: scale(0.8);
+  }
+
+  100%{
+    background-position: 0%;
+  }
+}
+
+@keyframes smokeAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  32% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}

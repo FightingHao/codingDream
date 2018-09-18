@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 禁止系统默认滚动条 */
+html, body{
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: url(images/bg.jpg);
+  background-color: black;
+}
+
+img {
+  width: 100%;
+}
+
+.starwars-demo {
+  width: 34em;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 17em;
+  transform: translate3d(-50%, -50%, 0);
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.star, .wars, .byline {
+  position: absolute;
+}
+
+.star {
+  top: -0.75em;
+  animation: star 10s ease-out infinite;
+}
+
+.wars {
+  bottom: -0.5em;
+  animation: wars 10s ease-out infinite;
+}
+
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateZ(-400em)
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateZ(-400em)
+  }
+}

@@ -8,7 +8,6 @@
 - 代理模式
   + Proxyable, 实现了更复杂更有用的功能，更好的控制对象
 
-
 - js 语法
   + JSON Object
   + this 关键字 在对象内部使用this对象本身

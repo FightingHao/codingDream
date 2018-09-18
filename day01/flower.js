@@ -16,9 +16,9 @@ var xiaohong = {
   single: true,
   classroom: '161',
   receiveFlower: function (sender) {
-    if(sender.name === '小丽'){
+    if (sender.name === '小丽') {
       console.log('看个电影试试')
-    }else{
+    } else {
       console.log('扔了')
     }
   },

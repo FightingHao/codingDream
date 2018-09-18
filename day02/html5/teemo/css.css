@@ -83,7 +83,7 @@
   opacity: .2;
 }
 
-.fire{
+.fire {
   transform-origin: 50% 64%;
   animation: frameAnimation 0.4s infinite steps(1);
 }
@@ -93,12 +93,12 @@
     background-position: 0;
   }
 
-  60%{
+  60% {
     background-position: 25%;
     transform: scale(0.8);
   }
 
-  100%{
+  100% {
     background-position: 0%;
   }
 }

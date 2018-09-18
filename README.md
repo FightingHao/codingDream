@@ -1,2 +1,2 @@
-# coddingDream
-this is my codding dream, 'QM_LESSON' Go for it !!
+# codingDream
+this is my coding dream, 'QM_LESSON' Go for it !!

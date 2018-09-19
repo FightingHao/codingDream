@@ -10,7 +10,7 @@ html, body{
 }
 
 body {
-  background: url(images/bg.jpg);
+  background: url(./images/bg.jpg);
   background-color: black;
 }
 

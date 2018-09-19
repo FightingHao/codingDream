@@ -54,6 +54,43 @@ img {
   transform-style: preserve-3d;
 }
 
+.huojian {
+  width: 100px;
+  position: fixed;
+  top: 30px;
+  right: 10px;
+}
+
+.huojian_play {
+  animation: huojian 1s infinite linear;
+}
+
+#huojian:hover {
+  cursor: pointer;
+}
+
+@keyframes huojian {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+  transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+  transform: translateY(10px);
+  }
+
+  100% {
+  transform: translateY(0);
+  }
+}
+
 @keyframes byline {
   0% {
     opacity: 0;

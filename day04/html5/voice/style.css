@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 选中所有元素(包括伪元素) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-style: 10px;
+}
+
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: #3bc1ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice_container {
+  width: 50rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.voice_container button {
+  font-family: 'Pacifico', cursive;
+}
+
+h1 {
+  padding: 0.5rem;
+  background: #ffc600;
+  border-bottom: 5px solid #f3c010;
+  text-align: center;
+  font-size: 5rem;
+  font-weight: 100;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 3px 3px 0 #f3c010;
+}
+
+.voice_container input,
+.voice_container button,
+.voice_container select,
+.voice_container textarea {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  /* 清除默认表单样式 */
+  border: 0;
+
+  font-size: 2rem;
+
+  background: #f7f7f7;
+}
+
+textarea {
+  height: 15rem;
+}
+
+.voice_container button {
+  background: #ffc600;
+  border: 0;
+  width: 49%;
+  float: left;
+  position: relative;
+}
+
+.voice_container button:nth-of-type(1) {
+  margin-right: 2%;
+}
+
+.voice_container button:active {
+  top: 2px;
+}

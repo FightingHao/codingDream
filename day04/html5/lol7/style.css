@@ -1,0 +1,146 @@
+/* css reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.g-wrap {
+  width: 100%;
+  height: 3366px;
+  overflow: hidden;
+  position: relative;
+  /* 专题使用 */
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/*
+ * author zhh
+ * data 9-19
+ * 中秋节首页活动上新
+ */
+
+ /* 背景样式 */
+.bg {
+  width: 100%;
+  position: absolute;
+}
+
+.bg_1 {
+  width: 100%;
+  height: 482px;
+  overflow: hidden;
+  background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_01.jpg) no-repeat;
+}
+
+.video-bg {
+  position: absolute;
+  left: 50%;
+  margin-left: -960px;
+}
+
+.cover-img {
+  position: absolute;
+  z-index: 1;
+  top: 369px;
+  left: 50%;
+  margin-left: 960px;
+}
+
+.bg_2 {
+  width: 100%;
+  height: 1853px;
+  background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_02.jpg) no-repeat;
+}
+
+.bg_3 {
+  width: 100%;
+  height: 1122px;
+  background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/bg_03.jpg) no-repeat;
+}
+
+.main {
+  width: 1200px;
+  margin: 640px auto;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-top-bg {
+  width: 235px;
+  height: 84px;
+  background: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png);
+  background-size: 1335px 1194px;
+  color: #bea468;
+  text-align: center;
+  display: inline-block;
+  line-height: 84px;
+  background-position: -337px -615px;
+}
+
+.btn-top-bg:hover {
+  background-position: -577px -615px;
+  color: #472c0f;
+}
+
+.icon-arrow {
+  width: 26px;
+  height: 25px;
+  display: inline-block;
+  background-image: url(http://ossweb-img.qq.com/images/lol/v2/index/7th/sprite-img.png);
+  background-position: -1281px -706px;
+  background-size: 1335px 1194px;
+  margin-left: 10px;
+  vertical-align: -7px;
+  display: none;
+}
+
+.btn-top-bg:hover .icon-arrow {
+  display: inline-block;
+  animation: arr-ani 2s infinite linear;
+}
+
+@keyframes arr-ani {
+  0% {
+    transform: translateX(0);
+  }
+
+  10% {
+    transform: translateX(5px);
+  }
+
+  20% {
+    transform: translateX(0);
+  }
+
+  30% {
+    transform: translateX(5px);
+  }
+
+  40% {
+    transform: translateX(0);
+  }
+
+  55% {
+    transform: translateX(0);
+  }
+
+  65% {
+    transform: translateX(8px);
+  }
+
+  95% {
+    transform: translateX(8);
+  }
+
+  0% {
+    transform: translateX(8px);
+  }
+}
+
+

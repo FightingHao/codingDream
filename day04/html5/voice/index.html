@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Voice</title>
+  <!-- 谷歌字体 -->
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="voice_container">
+    <h1>The Voiceinator 500</h1>
+    <select name="voice" id="voices">
+      <option value="">Select A Voice</option>
+    </select>
+    <label for="rate">Bate:</label>
+    <input type="range" min="0" max="3" step="0.1" value="1" name="rate">
+    <label for="pitch">Pitch:</label>
+    <input type="range" name="pitch" min="0" max="2" step="0.1">
+    <textarea name="text" placeholder="请输入文字"></textarea>
+    <!-- button[id]*2 -->
+    <button id="stop">Stop!</button>
+    <button id="speak">Speak</button>
+  </div>
+
+    <script>
+      const msg = new SpeechSynthesisUtterance()
+      msg.text = document.querySelector('[name="text"]').value
+      const speakButton = document.querySelector('#speak')
+      const stopButton = document.querySelector('#stop')
+      const options = document.querySelectorAll('[type="range"], [name="text"]')
+      const voicesDropdown = document.querySelector('[name="voice"]')
+
+      // 控制按钮播放与停止(转换)
+      function toggle(start = true) {
+        speechSynthesis.cancel()
+        if (start) {
+          speechSynthesis.speak(msg)
+        }
+      }
+
+      // 设置语速和语调
+      function setOption() {
+        msg[this.name] = this.value
+      }
+
+      // 选择各种语言的下拉框
+      function populateVoices() {
+        let voices = []
+        voices = this.getVoices()
+        let html = ''
+        for (let i = 0; i < voices.length; i++) {
+          html += `<option value="${voices[i].name}">${voices[i].name}</option>`
+        }
+        voicesDropdown.innerHTML = html
+      }
+
+      // 设置当前语言的语音
+      function setVoice() {
+        msg.voice = voices.find(voice => voice.name === this.value)
+      }
+
+      // 遍历监听语调, 语速, 输入框的改变
+      options.forEach((option) => {
+        option.addEventListener('change', setOption)
+      })
+
+      // 一系列的监听操作
+      speechSynthesis.addEventListener('voiceschanged', populateVoices)
+      voicesDropdown.addEventListener('change', setVoice)
+      speakButton.addEventListener('click', toggle)
+      stopButton.addEventListener('click', () => toggle(false))
+    </script>
+</body>
+
+</html>

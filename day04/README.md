@@ -1,1 +1,1 @@
-# LOL7周年活动页实战 + Speech Synthesis创意学习
+# LOL7周年活动页实战 + Speech Synthesis创意

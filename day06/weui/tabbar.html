@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./weui.css">
+  <link rel="stylesheet" href="./tabbar.css">
+</head>
+<body>
+  <!-- .weui-tabbar>a.weui-tabbar__item -->
+  <!--
+    tabbar模块 Block
+    tabbar__item Block的子元素
+    weui-tabbar__item_on 激活
+  -->
+  <div class="weui-tabbar">
+    <a href="#" class="weui-tabbar__item weui-tabbar__item_on">
+      <span>
+        <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        <span class="weui-badge">99+</span>
+      </span>
+      <p class="weui-tabbar__label">微信</p>
+    </a>
+
+    <a href="#" class="weui-tabbar__item">
+      <span>
+        <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        <span class="weui-badge"></span>
+      </span>
+      <p class="weui-tabbar__label">微信</p>
+    </a>
+
+    <a href="#" class="weui-tabbar__item">
+      <span>
+        <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        <span class="weui-badge"></span>
+      </span>
+      <p class="weui-tabbar__label">微信</p>
+    </a>
+
+    <a href="#" class="weui-tabbar__item">
+      <span>
+        <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+        <span class="weui-badge"></span>
+      </span>
+      <p class="weui-tabbar__label">微信</p>
+    </a>
+  </div>
+
+  <script>
+    window.onload = function () {
+      document.addEventListener('touchstart', function (ev) {
+        ev = ev || event
+        ev.preventDefault()
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: yellow;
+      overflow: hidden;
+    }
+
+    .plane-wrapper {
+      position: absolute;
+      top: 50%;
+      display: inline-block;
+      animation: undulate 8s linear infinite alternate;
+      perspective: 2500px;
+      transition: all .5s;
+    }
+
+    .section.animate-out .plane-wrapper {
+      animation: plane-out 1.3s ease-out forwards;
+    }
+
+    .plane-wrapper .rotate-container {
+      position: absolute;
+      top: 51.7003%;
+      left: 13.1%;
+      display: inline-block;
+      width: 27.424%;
+      height: 14.4474%;
+      animation: rotating .2s linear infinite reverse;
+    }
+
+    @keyframes rotating {
+      0% {
+        transform: rotate(0deg) rotateY(-20deg);
+      }
+
+      50% {
+        transform: rotate(180deg) rotateY(-20deg);
+      }
+
+      100% {
+        transform: rotate(360deg) rotateY(-20deg);
+      }
+    }
+
+    @keyframes undulate {
+
+      0%,
+      100%,
+      50% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      25% {
+        transform: translate3d(-6px, -18px, 0)
+      }
+
+      75% {
+        transform: translate3d(6px, 10px, 0)
+      }
+    }
+
+    @keyframes plane-out {
+      0% {
+        transform: scale(1) translateX(0);
+      }
+
+      30% {
+        transform: scale(.8) translateX(160px);
+      }
+
+      100% {
+        transform: scale(1.2) translateX(-2000px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 测试类的产品， App的升级可以在这里平稳运行
+  1. 大气而简约
+    飞机平稳运行
+  2. 官网， 设备有可能是多种多样
+    飞机可以随着设备的大小而改变
+    缩放 图片的大小还是不会变的， 200K 百分比
+    PC 会显示模糊
+    SVG 图片
+    不同设备图片处理问题
+    svg 矢量图， 不是由像素组成的
+    数学图形来构成的 -->
+  <!-- .section.section-1.ready -->
+  <div class="section section-1 ready">
+    <!-- 买im域名 -->
+    <div class="plane-wrapper" style="left: 315.5px;">
+      <img src="http://fir.im/images/plane.svg" alt="" class="plane">
+      <div class="rotate-container">
+        <img src="http://fir.im/images/propeller.svg" alt="" class="propeller">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const section = document.querySelector('.section')
+
+    document.body.onmousewheel = function (event) {
+      event = event || window.event
+      section.classList.remove('ready')
+      section.classList.add('animate-out')
+    }
+
+    document.body.addEventListener('mousewheel', function (event) {
+      event = event || window.event
+      section.classList.remove('ready')
+      section.classList.add('animate-out')
+    })
+  </script>
+</body>
+
+</html>

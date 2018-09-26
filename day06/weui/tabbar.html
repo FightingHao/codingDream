@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="./tabbar.css">
 </head>
 <body>
-  <!-- .weui-tabbar>a.weui-tabbar__item -->
   <!--
     tabbar模块 Block
     tabbar__item Block的子元素
     weui-tabbar__item_on 激活
   -->
+  <!-- (.weui-tabbar>a[href="#"].weui-tabbar__item>(span>img.weui-tabbar__icon+span.weui-badge)+p.weui-tabbar__label)*3 -->
   <div class="weui-tabbar">
     <a href="#" class="weui-tabbar__item weui-tabbar__item_on">
       <span>
@@ -27,25 +27,25 @@
     <a href="#" class="weui-tabbar__item">
       <span>
         <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <span class="weui-badge"></span>
+        <span class="weui-badge">10</span>
       </span>
-      <p class="weui-tabbar__label">微信</p>
+      <p class="weui-tabbar__label">通讯录</p>
     </a>
 
     <a href="#" class="weui-tabbar__item">
       <span>
         <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <span class="weui-badge"></span>
+        <span class="weui-badge">1</span>
       </span>
-      <p class="weui-tabbar__label">微信</p>
+      <p class="weui-tabbar__label">发现</p>
     </a>
 
     <a href="#" class="weui-tabbar__item">
       <span>
         <img src="./imgs/icon_tabbar.png" alt="" class="weui-tabbar__icon">
-        <span class="weui-badge"></span>
+        <span class="weui-badge">2</span>
       </span>
-      <p class="weui-tabbar__label">微信</p>
+      <p class="weui-tabbar__label">我</p>
     </a>
   </div>
 

@@ -96,6 +96,7 @@
       }
     }
 
+    /* 响应式——媒体查询  使适配不同设备 */
     @media (max-width: 769px) {
       .plane-wrapper {
         margin-top: -125px;
@@ -157,20 +158,23 @@
   </div>
 
   <script>
+    // 获取网页窗口宽度
     let screenWidth = document.body.clientWidth
     let planeWrapper = document.querySelector('.plane-wrapper')
+    // 设置非移动端的设备（屏幕较大）时的初始left偏移，让飞机居中显示
     if (screenWidth > 770) {
       planeWrapper.style.left = 315.5 + 'px'
     }
     window.onresize = function () {
       screenWidth = document.body.clientWidth
       planeWrapper = document.querySelector('.plane-wrapper')
+      // 设置left的值为 (网页宽度-飞机盒子宽度)/2
       let left = (screenWidth - planeWrapper.clientWidth) / 2
-
       planeWrapper.style.left = left + 'px'
 
       let section = document.querySelector('.section')
 
+      // 兼容IE8以下
       document.body.onmousewheel = function (event) {
         event = event || window.event
         section.classList.remove('ready')

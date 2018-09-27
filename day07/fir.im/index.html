@@ -12,13 +12,15 @@
       padding: 0;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
     }
 
     body {
       background: yellow;
       overflow: hidden;
+      min-width: 375px;
     }
 
     .plane-wrapper {
@@ -28,6 +30,11 @@
       animation: undulate 8s linear infinite alternate;
       perspective: 2500px;
       transition: all .5s;
+    }
+
+    .plane,
+    .propeller {
+      width: 100%;
     }
 
     .section.animate-out .plane-wrapper {
@@ -88,6 +95,41 @@
         transform: scale(1.2) translateX(-2000px);
       }
     }
+
+    @media (max-width: 769px) {
+      .plane-wrapper {
+        margin-top: -125px;
+        width: 375px;
+      }
+    }
+
+    @media (min-width: 770px) {
+      .plane-wrapper {
+        margin-top: -140px;
+        width: 600px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .plane-wrapper {
+        margin-top: -170px;
+        width: 680px;
+      }
+    }
+
+    @media (min-width: 1366px) {
+      .plane-wrapper {
+        margin-top: -195px;
+        width: 780px;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      .plane-wrapper {
+        margin-top: -200px;
+        width: 800px;
+      }
+    }
   </style>
 </head>
 
@@ -106,7 +148,7 @@
   <!-- .section.section-1.ready -->
   <div class="section section-1 ready">
     <!-- 买im域名 -->
-    <div class="plane-wrapper" style="left: 315.5px;">
+    <div class="plane-wrapper" style="left: auto;">
       <img src="http://fir.im/images/plane.svg" alt="" class="plane">
       <div class="rotate-container">
         <img src="http://fir.im/images/propeller.svg" alt="" class="propeller">
@@ -115,19 +157,32 @@
   </div>
 
   <script>
-    const section = document.querySelector('.section')
-
-    document.body.onmousewheel = function (event) {
-      event = event || window.event
-      section.classList.remove('ready')
-      section.classList.add('animate-out')
+    let screenWidth = document.body.clientWidth
+    let planeWrapper = document.querySelector('.plane-wrapper')
+    if (screenWidth > 770) {
+      planeWrapper.style.left = 315.5 + 'px'
     }
+    window.onresize = function () {
+      screenWidth = document.body.clientWidth
+      planeWrapper = document.querySelector('.plane-wrapper')
+      let left = (screenWidth - planeWrapper.clientWidth) / 2
 
-    document.body.addEventListener('mousewheel', function (event) {
-      event = event || window.event
-      section.classList.remove('ready')
-      section.classList.add('animate-out')
-    })
+      planeWrapper.style.left = left + 'px'
+
+      let section = document.querySelector('.section')
+
+      document.body.onmousewheel = function (event) {
+        event = event || window.event
+        section.classList.remove('ready')
+        section.classList.add('animate-out')
+      }
+
+      document.body.addEventListener('mousewheel', function (event) {
+        event = event || window.event
+        section.classList.remove('ready')
+        section.classList.add('animate-out')
+      })
+    }
   </script>
 </body>
 

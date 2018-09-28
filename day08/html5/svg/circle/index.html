@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>svg 矢量图做进度条</title>
+  <style>
+    html, body {
+      background-color: #2962ff;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    input {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      width: 80px;
+    }
+
+    .progress-ring__circle {
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      transition: .35s;
+    }
+  </style>
+</head>
+
+<body>
+  <svg class="progress-ring" height="120" width="120">
+    <circle class="progress-ring__circle" r="52" cx="60" cy="60" stroke-width="4" stroke="white" fill="transparent">
+  </svg>
+  <input type="number" value="0" step="5" min="0" max="100">
+
+  <script>
+    var circle = document.querySelector('circle')
+    // console.log(Object.prototype.toString.call(circle))
+    var radius = circle.r.baseVal.value
+    var circleference = radius * 2 * Math.PI
+    circle.style.strokeDasharray = `${circleference} ${circleference}`
+    circle.style.strokeDashoffset = `${circleference}`
+    const input = document.querySelector('input')
+    setProgress(input.value)
+
+    setInterval(() => {
+      let v = parseInt(input.value)
+      v++
+      input.value = v + ''
+
+      setProgress(input.value)
+    }, 100)
+
+    function setProgress(percent) {
+      const offset = circleference - percent / 100 * circleference
+      circle.style.strokeDashoffset = offset
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 禁止系统默认滚动条 */
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      z-index: 999;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <canvas id="webglcanvas"></canvas>
+
+  <!-- webgl库 -->
+  <script src="./libs/three.min.js"></script>
+  <script src="./libs/stats.min.js"></script>
+  <script>
+    let container,
+      canvas,  //功能标签  绘图API
+      stats,
+      camera,  //相机
+      scene,   //场景
+      renderer,  //渲染器
+      group,   //物体组
+      mouseX = 0,
+      mouseY = 0,
+      windowHalfX = window.innerWidth / 2,
+      windowHalfY = window.innerHeight / 2;
+
+    init()  //构建地球
+    animate()  //使地球旋转起来
+
+
+    function init() {
+      container = document.getElementById('container')
+      canvas = document.getElementById('webglcanvas')
+
+      // 3D绘制
+      // 相机
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000)
+      camera.position.z = 500  //相机的远近
+
+      // 场景
+      scene = new THREE.Scene()
+      scene.background = new THREE.Color(0xffffff)
+
+      // 创建一个组
+      group = new THREE.Group()
+      scene.add(group)
+
+      // 地球 数学形状 贴图
+      let loader = new THREE.TextureLoader()
+      loader.load('./land_ocean_ice_cloud_2048.jpg', function (texture) {
+        // console.log(texture)
+        let geometry = new THREE.SphereGeometry(200, 20, 20)  //形状
+        let material = new THREE.MeshBasicMaterial({ map: texture })  //材质
+        let mesh = new THREE.Mesh(geometry, material)  //物体
+        group.add(mesh)
+      })
+
+      // 渲染器
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true
+      })
+      renderer.setSize(window.innerWidth, window.innerHeight)
+
+      // 帮点鼠标移动事件
+      document.addEventListener('mousemove', onDocumentMouseMove, false)
+
+      // 窗口大小改变监听
+      window.addEventListener('resize', onWindowResize, false)
+    }
+
+    function onDocumentMouseMove(ev) {
+      ev = ev || event
+      // console.log(ev.clientX, ev.clientY)
+      mouseX = ev.clientX - windowHalfX
+      mouseY = ev.clientY - windowHalfY
+    }
+
+    function onWindowResize() {
+      windowHalfX = window.innerWidth / 2
+      windowHalfY = window.innerHeight / 2
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+    }
+
+    function animate() {
+      // canvas 核心 递归调用 不停运动（请求运动帧）
+      requestAnimationFrame(animate)
+      render()
+    }
+
+    function render() {
+      camera.position.x += (mouseX - camera.position.x) * 0.05
+      camera.position.y += (mouseX - camera.position.y) * 0.05
+      camera.lookAt(scene.position)
+      group.rotation.y -= 0.005
+      renderer.render(scene, camera)
+    }
+    // ecchat 数据可视化
+    // 平面的世界是错误的， css  perspective:1000px  transform-style:perserve-3d
+    // Camera Scene render(渲染容器) Light  ->  canvas
+  </script>
+</body>
+
+</html>

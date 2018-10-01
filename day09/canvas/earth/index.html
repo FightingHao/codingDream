@@ -59,7 +59,6 @@
 
       // 场景
       scene = new THREE.Scene()
-      scene.background = new THREE.Color(0xffffff)
 
       // 创建一个组
       group = new THREE.Group()
@@ -67,7 +66,7 @@
 
       // 地球 数学形状 贴图
       let loader = new THREE.TextureLoader()
-      loader.load('./land_ocean_ice_cloud_2048.jpg', function (texture) {
+      loader.load('./img/land_ocean_ice_cloud_2048.jpg', function (texture) {
         // console.log(texture)
         let geometry = new THREE.SphereGeometry(200, 20, 20)  //形状
         let material = new THREE.MeshBasicMaterial({ map: texture })  //材质
@@ -91,7 +90,6 @@
 
     function onDocumentMouseMove(ev) {
       ev = ev || event
-      // console.log(ev.clientX, ev.clientY)
       mouseX = ev.clientX - windowHalfX
       mouseY = ev.clientY - windowHalfY
     }

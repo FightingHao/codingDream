@@ -27,7 +27,7 @@
   <script src="./libs/three.min.js"></script>
   <script src="./libs/stats.min.js"></script>
   <script>
-    let canvas,  //功能标签  绘图API
+    let canvas,  //画布标签  绘图API
       stats,     //性能检测器
       camera,    //相机
       scene,     //场景
@@ -55,9 +55,9 @@
       // 场景
       scene = new THREE.Scene()
 
-      // 创建一个组
+      // 创建一个组合
       group = new THREE.Group()
-      scene.add(group)
+      scene.add(group)  //将组合添加进场景中渲染
 
       // 地球 数学形状 贴图
       let loader = new THREE.TextureLoader()
@@ -72,7 +72,14 @@
       // 渲染器
       renderer = new THREE.WebGLRenderer({
         canvas: canvas,
-        antialias: true  //抗锯齿
+        antialias: true, // true/false表示是否开启反锯齿,
+        /*
+        alpha: false,              // true/false 表示是否可以设置背景色透明,
+        precision: 'highp',        // highp/mediump/lowp 表示着色精度选择,
+        premultipliedAlpha: false, // true/false 表示是否可以设置像素深度（用来度量图像的分辨率）,
+        maxLights: 3,              // 最大灯光数,
+        stencil: false             // false/true 表示是否使用模板字体或图案
+        */
       })
       // 指定渲染器宽高
       renderer.setSize(window.innerWidth, window.innerHeight)
@@ -101,7 +108,7 @@
     }
 
     function animate() {
-      // canvas 核心 递归调用 不停运动（请求运动帧）
+      // 请求运动帧
       requestAnimationFrame(animate)
       render()
     }
@@ -116,6 +123,7 @@
       camera.lookAt(scene.position)
       // 地球自转速度
       group.rotation.y -= 0.005
+      // 核心 递归调用
       renderer.render(scene, camera)
     }
 

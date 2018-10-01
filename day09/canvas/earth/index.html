@@ -13,44 +13,39 @@
       height: 100%;
       overflow: hidden;
     }
-
-    #container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100px;
-      z-index: 999;
-    }
   </style>
 </head>
 
 <body>
-  <div id="container"></div>
+  <!-- 用于显示和统计图形的性能 -->
+  <div id="stats-output"></div>
+
+  <!-- 作为Three.js渲染器输出3D图形 -->
   <canvas id="webglcanvas"></canvas>
 
   <!-- webgl库 -->
   <script src="./libs/three.min.js"></script>
   <script src="./libs/stats.min.js"></script>
   <script>
-    let container,
-      canvas,  //功能标签  绘图API
-      stats,
-      camera,  //相机
-      scene,   //场景
+    let canvas,  //功能标签  绘图API
+      stats,     //性能检测器
+      camera,    //相机
+      scene,     //场景
       renderer,  //渲染器
-      group,   //物体组
-      mouseX = 0,
-      mouseY = 0,
-      windowHalfX = window.innerWidth / 2,
-      windowHalfY = window.innerHeight / 2;
+      group,     //物体组
+      mouseX = 0,  //鼠标横向位置
+      mouseY = 0,  //鼠标纵向位置
+      windowHalfX = window.innerWidth / 2,  //视口大小的一般
+      windowHalfY = window.innerHeight / 2; //视口大小的一半
 
     init()  //构建地球
     animate()  //使地球旋转起来
 
-
     function init() {
-      container = document.getElementById('container')
+      // 获取canvas画布
       canvas = document.getElementById('webglcanvas')
+      // stats性能检测器初始化
+      stats = initStats();
 
       // 3D绘制
       // 相机
@@ -77,23 +72,26 @@
       // 渲染器
       renderer = new THREE.WebGLRenderer({
         canvas: canvas,
-        antialias: true
+        antialias: true  //抗锯齿
       })
+      // 指定渲染器宽高
       renderer.setSize(window.innerWidth, window.innerHeight)
 
-      // 帮点鼠标移动事件
+      // 绑定鼠标移动事件
       document.addEventListener('mousemove', onDocumentMouseMove, false)
 
       // 窗口大小改变监听
       window.addEventListener('resize', onWindowResize, false)
     }
 
+    // 监听鼠标移动方向， 从而确定地球南北半球
     function onDocumentMouseMove(ev) {
       ev = ev || event
       mouseX = ev.clientX - windowHalfX
       mouseY = ev.clientY - windowHalfY
     }
 
+    // 监听窗口大小， 从而根据窗口大小改变地球大小， 类似响应式
     function onWindowResize() {
       windowHalfX = window.innerWidth / 2
       windowHalfY = window.innerHeight / 2
@@ -108,13 +106,32 @@
       render()
     }
 
+    // 地球旋转逻辑函数
     function render() {
+      // 更新性能监视器
+      stats.update();
       camera.position.x += (mouseX - camera.position.x) * 0.05
       camera.position.y += (mouseX - camera.position.y) * 0.05
+      // 拍摄角度， 可改变地球视角
       camera.lookAt(scene.position)
+      // 地球自转速度
       group.rotation.y -= 0.005
       renderer.render(scene, camera)
     }
+
+    function initStats() {
+      stats = new Stats();
+      //设置统计模式
+      stats.setMode(0); // 0: fps, 1: ms
+      //统计信息显示在左上角
+      stats.domElement.style.position = 'absolute';
+      stats.domElement.style.left = '10px';
+      stats.domElement.style.top = '10px';
+      //将统计对象添加到对应的<div>元素中
+      document.getElementById("stats-output").appendChild(stats.domElement);
+      return stats;
+    }
+
     // ecchat 数据可视化
     // 平面的世界是错误的， css  perspective:1000px  transform-style:perserve-3d
     // Camera Scene render(渲染容器) Light  ->  canvas

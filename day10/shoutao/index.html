@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    /*
+     * 功能：计算全年工资
+     * @Params salary number
+     * @Params level default C, in 'ABCD'
+     * @return number
+     */
+
+    function levelA() {
+      return 6
+    }
+
+    function levelB() {
+      return 4
+    }
+
+    function levelC() {
+      return 2.5
+    }
+
+    function levelD() {
+      return 0
+    }
+
+
+
+    function giveSalary(salary, level = 'C') {
+      let jixiao = levelC()
+      salary = Number(salary)
+
+      if (arguments.length == 0) {
+        throw new Error('请输入工资')
+      }
+
+      if ('ABCD'.indexOf(level) < 0) {
+        throw new Error('请选择绩效等级')
+      }
+
+      if (salary <= 0) {
+        throw new Error('请输入正确的工资金额')
+      }
+
+      if (level === 'A') {
+        jixiao = levelA()
+      } else if (level === 'B') {
+        jixiao = levelB()
+      } else if (jixiao === 'D') {
+        jixiao = levelD()
+      }
+      return (jixiao + 12) * salary
+    }
+
+    let salary = prompt('请输入用户工资')
+    console.log(giveSalary(salary, 'A'))
+  </script>
+</body>
+
+</html>

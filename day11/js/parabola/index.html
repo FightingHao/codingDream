@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>抛物线运动</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .ball {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: red;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    // 起始点，结束点坐标
+    let XStart = 0, YStart = 0, XEnd = 1000, YEnd = 1000
+    let Time = 520  // 运行时间
+    let XSpeed = (XEnd - XStart) / Time // 水平方向的速度  left有戏
+    let A = 2 * (YEnd - YStart) / (Time * Time)  // 加速度的运算公式
+
+    let nowX = XStart  // 当前x的值
+    let nowY = YStart  // 当前y的值
+    let loop = 0
+
+    let ball = document.createElement('div')
+    ball.className = 'ball'
+    document.body.appendChild(ball)
+    ball.style.top = YStart + 'px'
+    ball.style.left = XStart + 'px'
+
+    let move = () => {
+      requestAnimationFrame(() => {
+        if (nowY >= YEnd) {
+          ball.parentElement.removeChild(ball)
+          return
+        }
+        nowX += XSpeed
+        nowY += A * loop
+        ball.style.top = nowY + 'px'
+        ball.style.left = nowX + 'px'
+        loop++
+        move()
+      })
+    }
+    move()
+  </script>
+</body>
+
+</html>

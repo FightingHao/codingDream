@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES6 Array 新方法</title>
+</head>
+
+<body>
+  <script>
+    const race = '100m Dash'
+    const winners = ['Hunber Gath', 'Singa Song', 'Imda Bos']
+    const win = winners.map((winner, index) => ({
+      name: winner,
+      race,
+      place: index + 1
+    }))
+    console.log(win)
+
+
+  </script>
+</body>
+
+</html>

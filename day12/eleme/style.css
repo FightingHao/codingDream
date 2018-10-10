@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'sell-icon';
+  src: url("./fonts/sell-icon.eot?k5xf13"), url("./fonts/sell-icon.eot?k5xf13#iefix") format('embedded-opentype'), url("./fonts/sell-icon.ttf?k5xf13") format('truetype'), url("./fonts/sell-icon.woff?k5xf13") format('woff'), url("./fonts/sell-icon.svg?k5xf13#iefix") format('svg');
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'sell-icon' !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+.icon-keyboard_arrow_right:before {
+  content: "\e909";
+}
+.header {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: rgba(7,17,27,0.5);
+}
+.header .content-wrapper {
+  position: relative;
+  padding: 24px 12px 18px 24px;
+  font-size: 0;
+}
+.header .content-wrapper .avatar {
+  display: inline-block;
+  vertical-align: top;
+}
+.header .content-wrapper .avatar img {
+  border-radius: 2px;
+}
+.header .content-wrapper .content {
+  display: inline-block;
+  margin-left: 16px;
+}
+.header .content-wrapper .content .title {
+  margin: 2px 0 8px 0;
+}
+.header .content-wrapper .content .title .brand {
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  background-image: url("brand@2x.png");
+  vertical-align: top;
+  background-size: 30px 18px;
+  background-repeat: no-repeat;
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .title .brand {
+    background-image: url("brand@3x.png");
+  }
+}
+.header .content-wrapper .content .title .name {
+  margin-left: 6px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: bold;
+}
+.header .content-wrapper .content .description {
+  margin-bottom: 10px;
+  line-height: 12px;
+  font-size: 12px;
+}
+.header .content-wrapper .content .support .icon {
+  display: inline-block;
+  vertical-align: top;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+}
+.header .content-wrapper .content .support .icon.decrease {
+  background-image: url("decrease_1@2x.png");
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .support .icon.decrease {
+    background-image: url("decrease_1@3x.png");
+  }
+}
+.header .content-wrapper .content .support .icon.discount {
+  background-image: url("discount_1@2x.png");
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .support .icon.discount {
+    background-image: url("discount_1@3x.png");
+  }
+}
+.header .content-wrapper .content .support .icon.guarantee {
+  background-image: url("guarantee_1@2x.png");
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .support .icon.guarantee {
+    background-image: url("guarantee_1@3x.png");
+  }
+}
+.header .content-wrapper .content .support .icon.invoice {
+  background-image: url("invoice_1@2x.png");
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .support .icon.invoice {
+    background-image: url("invoice_1@3x.png");
+  }
+}
+.header .content-wrapper .content .support .icon.special {
+  background-image: url("special_1@2x.png");
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+  .header .content-wrapper .content .support .icon.special {
+    background-image: url("special_1@3x.png");
+  }
+}
+.header .content-wrapper .content .support .text {
+  line-height: 12px;
+  font-size: 10px;
+}
+.header .content-wrapper .support-count {
+  position: absolute;
+  right: 12px;
+  bottom: 14px;
+  padding: 0 8px;
+  height: 24px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 24px;
+}
+.header .content-wrapper .support-count .count {
+  vertical-align: top;
+  font-size: 10px;
+}
+.header .content-wrapper .support-count .icon-keyboard_arrow_right {
+  margin-left: 2px;
+  line-height: 24px;
+  font-size: 10px;
+}

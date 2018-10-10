@@ -1,0 +1,102 @@
+bg-image($url)
+  background-image: url($url + '@2x.png')
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    background-image url($url + '@3x.png')
+
+*
+  margin 0
+  padding 0
+  box-sizing: border-box
+
+@font-face
+  font-family 'sell-icon'
+  src url(./fonts/sell-icon.eot?k5xf13),
+      url(./fonts/sell-icon.eot?k5xf13#iefix) format('embedded-opentype'),
+      url(./fonts/sell-icon.ttf?k5xf13) format('truetype'),
+      url(./fonts/sell-icon.woff?k5xf13) format('woff'),
+      url(./fonts/sell-icon.svg?k5xf13#iefix) format('svg')
+
+[class^="icon-"], [class*=" icon-"]
+  font-family 'sell-icon' !important
+  font-style normal
+  font-weight normal
+  line-height 1
+
+.icon-keyboard_arrow_right:before
+  content "\e909"
+
+.header
+  position relative
+  overflow hidden
+  color #ffffff
+  background rgba(7, 17, 27, .5)
+  .content-wrapper
+    position relative
+    padding 24px 12px 18px 24px
+    font-size 0
+    .avatar
+      display inline-block
+      vertical-align top
+      img
+        border-radius 2px
+    .content
+      display inline-block
+      margin-left 16px
+      .title
+        margin 2px 0 8px 0
+        .brand
+          display inline-block
+          width 30px
+          height 18px
+          bg-image('brand')
+          vertical-align top
+          background-size 30px 18px
+          background-repeat no-repeat
+        .name
+          margin-left 6px
+          font-size 16px
+          line-height 18px
+          font-weight bold
+      .description
+        margin-bottom 10px
+        line-height 12px
+        font-size: 12px
+      .support
+        .icon
+          display inline-block
+          vertical-align top
+          width 12px
+          height 12px
+          margin-right 4px
+          background-size 12px 12px
+          background-repeat no-repeat
+          &.decrease
+            bg-image('decrease_1')
+          &.discount
+            bg-image('discount_1')
+          &.guarantee
+            bg-image('guarantee_1')
+          &.invoice
+            bg-image('invoice_1')
+          &.special
+            bg-image('special_1')
+        .text
+          line-height 12px
+          font-size 10px
+    .support-count
+      position absolute
+      right 12px
+      bottom 14px
+      padding 0 8px
+      height 24px
+      border-radius 14px
+      background rgba(0, 0, 0, .2)
+      text-align center
+      line-height 24px
+      .count
+        vertical-align top
+        font-size 10px
+      .icon-keyboard_arrow_right
+        margin-left 2px
+        line-height 24px
+        font-size 10px

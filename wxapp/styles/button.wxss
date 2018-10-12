@@ -1,0 +1,16 @@
+.button {
+  display: inline-block;
+  margin: 4px;
+  background: #e0e1e2;
+  padding: 0 24px;
+  color: rgba(0, 0, 0, .6);
+  font-weight: bold;
+  border-radius: 1px;
+  font-size: 32rpx;
+  transition: .3s all;
+}
+
+.button.primary {
+  background: #000;
+  color: rgba(255, 255, 255, .9)
+}

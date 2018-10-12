@@ -1,0 +1,57 @@
+.cards {
+  padding: 16px;
+}
+
+.card {
+  background: #fff;
+  margin-bottom: 16px;
+  transition: .5 all;
+}
+
+.card image {
+  position: relative;
+}
+
+.card .label {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 24rpx;
+  padding: 4rpx -8rpx;
+  background: rgba(0, 0, 0, .85);
+  border-radius: 2px;
+}
+
+.card image, .card video {
+  height: 36vh;
+}
+
+.card .content {
+  padding: 48rpx -48rpx -64rpx;
+}
+
+.card .header {
+  font-size: 48rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  margin-bottom: 48rpx;
+}
+
+.card .header::after {
+  content: "";
+  display: block;
+  width: 40px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+}
+
+.card .sub-header {
+  font-size: 32rpx;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.card .description, .card .meta {
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, .85);
+}

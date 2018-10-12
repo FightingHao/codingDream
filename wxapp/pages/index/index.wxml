@@ -1,0 +1,39 @@
+<!-- 小程序提供快捷组建 轮播图 -->
+<swiper class='section hero white' indicator-dots='{{true}}'>
+  <block wx:for="{{slides}}" wx:key="id">
+    <swiper-item>
+      <image mode='aspectFill' src='{{item.image}}'></image>
+      <view class="content centered">
+        <view class="sub-header">{{item.sub_header}}</view>
+        <view class="header">{{item.header}}</view>
+        <view class="description">{{item.description}}</view>
+        <view class="action">
+          <button class="button" bindtap="testDrive">预约试驾</button>
+          <button class="button primary"  bindtap="readMore" data-id="{{item.id}}">了解更多</button>
+        </view>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="cards">
+  <view class="card" wx:for="{{entities}}" wx:key="id">
+    <navigator url="/pages/vehicles/show?id={{item.id}}">
+      <image src="{{item.image}}"></image>
+      <view class="content">
+        <view class="header">
+          {{item.header}}
+          <view class="sub-header">
+            {{item.sub_header}}
+          </view>
+        </view>
+        <view class="description">
+          {{item.description}}
+        </view>
+        <view class="meta">
+          {{item.meta.price}}
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

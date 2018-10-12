@@ -1,0 +1,14 @@
+/* 每个页面都默认根是page */
+
+@import './styles/reset.wxss';
+@import './styles/hero.wxss';
+@import './styles/button.wxss';
+@import './styles/card.wxss';
+
+page {
+  background: #f8f8f8;
+}
+
+.section {
+  height: 100vh;
+}

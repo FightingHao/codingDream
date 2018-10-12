@@ -19,9 +19,3 @@
 .usermotto {
   margin-top: 200px;
 }
-
-.test {
-  width: 375rpx;
-  height: 100rpx;
-  background-color: red;
-}

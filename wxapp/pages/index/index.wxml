@@ -1,7 +1,9 @@
 <!-- 小程序提供快捷组建 轮播图 -->
 <swiper class='section hero white' indicator-dots='{{true}}'>
+  <!-- 当数据改变触发渲染层重新渲染的时候，会校正带有 key 的组件，框架会确保他们被重新排序，而不是重新创建，以确保使组件保持自身的状态，并且提高列表渲染时的效率。 -->
   <block wx:for="{{slides}}" wx:key="id">
     <swiper-item>
+      <!-- aspectFill保持图片的宽高比不会变形,让图片完全填满整个容器 -->
       <image mode='aspectFill' src='{{item.image}}'></image>
       <view class="content centered">
         <view class="sub-header">{{item.sub_header}}</view>
@@ -9,7 +11,7 @@
         <view class="description">{{item.description}}</view>
         <view class="action">
           <button class="button" bindtap="testDrive">预约试驾</button>
-          <button class="button primary"  bindtap="readMore" data-id="{{item.id}}">了解更多</button>
+          <button class="button primary" bindtap="readMore" data-id="{{item.id}}">了解更多</button>
         </view>
       </view>
     </swiper-item>
@@ -37,3 +39,5 @@
     </navigator>
   </view>
 </view>
+
+<view class='test'></view>

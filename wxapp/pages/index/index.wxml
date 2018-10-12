@@ -17,7 +17,6 @@
     </swiper-item>
   </block>
 </swiper>
-
 <view class="cards">
   <view class="card" wx:for="{{entities}}" wx:key="id">
     <navigator url="/pages/vehicles/show?id={{item.id}}">
@@ -25,19 +24,12 @@
       <view class="content">
         <view class="header">
           {{item.header}}
-          <view class="sub-header">
-            {{item.sub_header}}
-          </view>
+          <view class="sub-header">{{item.sub_header}}</view>
         </view>
-        <view class="description">
-          {{item.description}}
-        </view>
-        <view class="meta">
-          {{item.meta.price}}
-        </view>
+        <view class="description">{{item.description}}</view>
+        <view class="meta">{{item.meta.price}}</view>
       </view>
     </navigator>
   </view>
 </view>
-
 <view class='test'></view>

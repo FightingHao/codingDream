@@ -23,6 +23,7 @@
 
 - 组件
   + 小程序提供了很多内置功能组件
+  + 组件：具有特定功能效果的代码集合
   + swiper 声明式组件
   + swiper>swiper-item
   + indicator-dots='{{true}}'

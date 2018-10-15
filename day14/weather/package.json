@@ -1,0 +1,16 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "- compile\r   + stylus\r   + js\r   + babel 让我们的js可以使用最新的技术来编写\r   + typescript\r   + es6/7/8 => es5\r   + html\r   + 模板",
+  "main": "es6.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>栅格系统</title>
+  <link rel="stylesheet" href="./style.css">
+  <script>
+    window.onload = function () {
+      const oMd3 = document.querySelectorAll('.col-md-3>div')
+      // 前端主动拉取数据， 是动态网页的基础  ajax
+      fetch('/data.json')
+        .then(data => data.json())
+        .then(data => {
+          const arrColsData = data.data
+          arrColsData.forEach((item, index) => {
+            console.log(item)
+            oMd3[index].innerHTML = item.text
+          })
+        })
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row all-event-list">
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <div></div>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <div></div>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <div></div>
+      </div>
+      <div class="col-md-3 col-sm-4 col-xs-6">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -31,8 +31,12 @@ body
   padding: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+}
 html,
 body {
+  background-color: #f00;
   height: 100%;
 }
 .html_content,
@@ -49,6 +53,7 @@ body {
 ul,
 li {
   list-style: none;
+  position: relative;
 }
 .item-section ul {
   padding: 0.133333rem;
@@ -58,10 +63,33 @@ li {
   width: 100%;
   margin-bottom: 1px;
   background: #fff;
+  padding: 0.16rem 0;
+}
+.figcaption {
+  padding-left: 0.213333rem;
+}
+.flag-price {
+  margin: 0.1rem 0;
+}
+.active {
+  background-color: #f00;
+  color: #fff;
+}
+.price {
+  display: inline-block;
+  font-size: 16px;
+  color: #f00;
+  font-weight: bold;
+}
+.hot {
+  color: #ff6a30;
+  font-size: 13px;
+}
+.price span {
+  font-size: 13px;
 }
 .flag .flag-item {
   display: table-cell;
-  padding: 0.16rem 0;
   vertical-align: top;
   background: #fff;
 }
@@ -71,4 +99,23 @@ li {
 }
 .flag .flag-item.figure img {
   max-width: 100%;
+}
+.flag-title {
+  width: 6rem;
+}
+.flag-title a {
+  color: #000;
+}
+.speed {
+  display: block;
+  position: absolute;
+  width: 2.2rem;
+  height: 0.75rem;
+  background-color: #f00;
+  color: #fff;
+  line-height: 0.75rem;
+  text-align: center;
+  font-size: 15px;
+  right: 0.253333rem;
+  bottom: 0.2rem;
 }

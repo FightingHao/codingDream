@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <div class="username"></div>
+    <div class="motto"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const eleUsername = document.querySelector('.username')
+      const eleMotto = document.querySelector('.motto')
+      let xhr = null // 异步js 主动拉取的核心对象 Ajax
+      // 浏览器嗅探
+      if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest()
+      } else {
+        // 老浏览器
+        xhr = new ActiveXObject('Microsoft.XMLHTTP')
+      }
+      // 从页面打开一个去url的通道
+      xhr.open('get', './dream.json', true)
+      xhr.send()
+      xhr.onreadystatechange = function (data) {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+          const dream = JSON.parse(xhr.responseText)
+          console.log(dream)
+          eleUsername.innerHTML = dream.user
+          eleMotto.innerHTML = dream.motto
+        }
+      }
+    })
+
+  </script>
+
+  <!-- script标签是个阻塞型标签 -->
+  <!-- <script>
+    const eleUsername = document.querySelector('.username')
+    console.log(eleUsername)
+  </script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script>
+    // domReady 比 window.onload 早一点
+    /* $(function () {
+      const eleUsername = document.querySelector('.username')
+      console.log(eleUsername)
+    }) */
+    /* document.addEventListener('DOMContentLoaded', function () {
+      console.log('DOMContentLoaded')
+    })
+
+    window.onload = function () {
+      console.log('load')
+    } */
+    $(function () {
+      // $('.username').html('颖宝')
+      // live-server 地址会添加localhost
+      $.getJSON('./dream.json', function (data) {
+        console.log(data)
+        $('.username').html(data.user)
+        $('.motto').html(data.motto)
+      })
+    })
+  </script> -->
+</body>
+
+</html>

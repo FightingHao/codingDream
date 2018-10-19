@@ -29,7 +29,7 @@ Page({
     let carts = this.data.carts
     let total = 0
     carts.forEach((item, index) => {
-      if(item.selected) {
+      if (item.selected) {
         total += item.price * item.num
       }
     })
@@ -45,12 +45,12 @@ Page({
     carts[index].selected = !carts[index].selected
     let selectedCount = 0
     for (const cart of carts) {
-      if(cart.selected) {
+      if (cart.selected) {
         selectedCount++
       }
     }
     let isAllSelected = false
-    if(selectedCount === carts.length) {
+    if (selectedCount === carts.length) {
       isAllSelected = true
     }
     this.setData({
@@ -70,7 +70,7 @@ Page({
       carts
     })
 
-    if(!carts.length) {
+    if (!carts.length) {
       this.setData({
         hasList: false
       })
@@ -93,6 +93,32 @@ Page({
     this.getTotalPrice()
   },
 
+  minusCount(e) {
+    let index = e.currentTarget.dataset.index
+    let num = e.currentTarget.dataset.num - 1
+    let carts = this.data.carts
+    carts[index].num = num
+    this.setData({
+      carts
+    })
+
+    if (num <= 0) {
+      this.deleteList(e)
+    }
+    this.getTotalPrice()
+  },
+
+  addCount(e) {
+    let index = e.currentTarget.dataset.index
+    let num = e.currentTarget.dataset.num + 1
+    let carts = this.data.carts
+    carts[index].num = num
+    this.setData({
+      carts
+    })
+    this.getTotalPrice()
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -104,7 +130,7 @@ Page({
             id: 1,
             title: 'iphone MX',
             image: '/image/s5.png',
-            num: 1,
+            num: 2,
             price: 867,
             selected: true
           },

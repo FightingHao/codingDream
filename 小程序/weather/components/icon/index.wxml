@@ -1,0 +1,6 @@
+<text class="iconfont icon-{{type}}" style="color: {{color}}"></text>
+
+<!--
+  使用
+  <icon type="edit"></icon>
+-->

@@ -1,0 +1,11 @@
+<view class="calendar">
+  <calendar weeks-type="cn" cell-size="30" next="{{false}}" prev="{{false}}" show-more-days="{{true}}"
+      calendar-style="demo6-calendar" header-style="calendar-header" board-style="calendar-board"
+      active-type="rounded" lunar="true"></calendar>
+</view>
+<view class="icon">
+  <icon type="edit" color="red"></icon>
+  <icon type="add"></icon>
+  <icon type="map"></icon>
+  <icon type="home"></icon>
+</view>

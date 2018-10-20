@@ -1,0 +1,16 @@
+<loading hidden="{{hiddenLoading}}"></loading>
+<view class="wrapper">
+  <view class="group" wx:for="{{articleList}}" wx:for-item="group" wx:key="{{group.date}}">
+    <view class="group-bar">
+      <view class="group-title">{{group.date}}</view>
+    </view>
+    <view class="group-content">
+      <view class="group-content-item" wx:for="{{group.articles}}" wx:key="{{article.contentId}}"
+          wx:for-item="article" bindtap="showDetail" data-item="{{article}}">
+        <view class="group-content-item-desc ellipsis-multi-line ellipsis-line-3" >{{article.title}}</view>
+        <image mode="aspectFill" class="group-content-item-img" src="{{article.cover}}"></image>
+      </view>
+    </view>
+  </view>
+  <view class="no-more" hidden="{{hasMore}}">暂时没有内容</view>
+</view>

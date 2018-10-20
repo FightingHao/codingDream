@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Randy</p>
+  </div>
+
+  <script>
+    // 类数组
+    // Array.from() 数组的改造
+    var p = Array.from(document.querySelectorAll('.people>p'))
+    console.log(p)
+    pStr = p.map(item => item.innerHTML).join('')
+    console.log(pStr)
+
+    const deepDish = {
+      pizzaName: 'Deep Dish',
+      size: 'Medium',
+      ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+    }
+
+    const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients]
+    console.log(shoppingList)
+
+    const team = ['a', 'b', 'c', 'd', 'e', 'f']
+    // const players = team.splice(2)
+    const [captain, assistant, ...players] = team
+    console.log(players)
+  </script>
+</body>
+</html>

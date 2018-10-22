@@ -96,6 +96,13 @@ Page({
     ]
 
   },
+  onLoad() {
+    this.setData({
+      slides: app.globalData.slides,
+      entities: app.globalData.vehicles
+    })
+    console.log(app.globalData)
+  },
   testDrive() {
     console.log('driver')
   },

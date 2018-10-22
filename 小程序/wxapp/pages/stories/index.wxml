@@ -1,0 +1,9 @@
+<view class="cards">
+  <view class="card" wx:for="{{stories}}" wx:key="id">
+    <video src="{{item.video}}" hidden="{{currentVid !== item.id}}"
+        id="{{item.id}}" poster="item.image" objectFit="cover" duration="{{item.duration_raw}}"></video>
+    <image data-vid="{{item.id}}" bindtap="play" src="{{item.image}}" mode="aspectFill"
+        hidden="{{currentVid === item.id}}"></image>
+    <view class="label">{{item.duration}}</view>
+  </view>
+</view>

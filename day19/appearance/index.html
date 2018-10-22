@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    select {
+      /* 去除浏览器默认样式 */
+      -webkit-appearance: none;
+      /* -webkit-appearance: button;
+      -webkit-appearance: checkbox;
+      -webkit-appearance: scrollbarbutton-up; */
+    }
+
+    input {
+      -webkit-appearance: none;
+      /* 设置轮廓样式 */
+      outline: none;
+      border: 0;
+      background-color: transparent;
+    }
+
+    .btn {
+      position: relative;
+      width: 100px;
+      display: block;
+      color: white;
+      background-color: #bfa;
+      font-size: 18px;
+      line-height: 2.666;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    /* 伪元素+缩放 设置1px边框 */
+    .btn::after {
+      top: 0;
+      left: 0;
+      position: absolute;
+      content: "";
+      height: 200%;
+      width: 200%;
+      border: 1px solid red;
+      transform: scale(.5) translate(-50%, -50%);
+      /* transform-origin: 0 0; */
+      box-sizing: border-box;
+      border-radius: 30px;
+    }
+
+    .btn:active {
+      background-color: rgba(0, 255, 0, .6);
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#" class="btn">sss</a>
+  <input type="text">
+  <select name="" id="">
+    <option value="0">请选择</option>
+    <option value="1">男</option>
+    <option value="2">女</option>
+  </select>
+</body>
+
+</html>

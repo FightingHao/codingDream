@@ -1,0 +1,64 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  line-height: 1.6;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.weui-btn {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow: hidden;
+}
+.weui-btn_inline {
+  display: inline-block;
+}
+.weui-btn_primary {
+  background-color: #1aad19;
+}
+button.weui-btn,
+input.weui-btn {
+  width: 100%;
+  border-width: 0;
+  outline: 0;
+  -webkit-appearance: none;
+}
+button.weui-btn:focus,
+input.weui-btn:focus {
+  outline: 0;
+}
+button.weui-btn_inline,
+input.weui-btn_inline,
+button.weui-btn_mini,
+input.weui-btn_mini {
+  width: auto;
+}
+button.weui-btn_plain-primary,
+input.weui-btn_plain-primary,
+button.weui-btn_plain-default,
+input.weui-btn_plain-default {
+  border-width: 1px;
+  background-color: transparent;
+}

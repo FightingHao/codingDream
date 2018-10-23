@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-card": "../../vant-weapp/card/index"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100
+}

@@ -1,0 +1,3 @@
+<van-button type="primary" square block bind:click="navigateToAdd">新增数据</van-button>
+<van-button type="primary" square block plain bind:click="navigateToIndex">数据列表</van-button>
+<van-button type="primary" square block bind:click="navigateToComplex">复杂查询</van-button>

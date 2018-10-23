@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "Search 搜索",
+  "usingComponents": {
+    "van-search": "../../vant-weapp/search/index",
+    "demo-block": "../../components/demo-block/index"
+  }
+}

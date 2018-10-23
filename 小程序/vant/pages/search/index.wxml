@@ -1,0 +1,21 @@
+<!-- <view class="desc">基本用法</view> -->
+<demo-block title="自定义行动按钮">
+  <van-search value="{{value}}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
+</demo-block>
+
+<!-- <van-search value="{{value}}" placeholder="请输入搜索关键词"
+    bind:change="onChange" bind:search="onSearch" />
+
+<view class="desc">listen对应事件</view>
+<van-search value="{{value}}" placeholder="请输入搜索关键词"
+    show-action bind:change="onChange" bind:search="onSearch" bind:cancel="onCancel"></van-search>
+
+<view class="desc">自定义行动按钮</view> -->
+<!-- block -->
+<!-- <van-search value="{{value}}" placeholder="请输入搜索关键词"
+    use-action-slot bind:change="onChange" bind:search="onSearch"> -->
+  <!-- slot区域 -->
+  <!-- <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search> -->

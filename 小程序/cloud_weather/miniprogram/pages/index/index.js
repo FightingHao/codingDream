@@ -17,7 +17,7 @@ Page({
     productsCollection.get().then(res => {
       this.setData({
         products: res.data
-      }, res => {
+      }, () => {
         console.log('数据更新完成')
         wx.stopPullDownRefresh()
       })

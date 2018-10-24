@@ -1,7 +1,7 @@
 Page({
   scanCode: function () {
     wx.scanCode({
-      onlyFromCamera: true,
+      onlyFromCamera: false,
       scanType: ['barCode'],
       success: res => {
         /* wx.showToast({

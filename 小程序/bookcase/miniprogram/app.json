@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/scanCode/scanCode",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "私家书柜",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的藏书"
+      },
+      {
+        "pagePath": "pages/scanCode/scanCode",
+        "text": "我的扫码加书"
+      }
+    ]
+  }
+}

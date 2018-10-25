@@ -1,0 +1,6 @@
+<block wx:for="{{userList}}">
+
+</block>
+<view class="floatBtn">
+  <button size="mini" bindtap="navigateTo" type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">+</button>
+</view>

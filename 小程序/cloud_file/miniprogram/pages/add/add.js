@@ -40,7 +40,7 @@ Page({
                 })
               })
             },
-            fail: err => console.log('111111' + err)
+            fail: err => console.log(err)
           })
         }
       }

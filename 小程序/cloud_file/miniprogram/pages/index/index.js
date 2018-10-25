@@ -8,9 +8,6 @@ Page({
   getUserInfo(result) {
     wx.cloud.callFunction({
       name: 'getOpenId',
-      data: {
-        age: 20
-      },
       complete: res => {
         userInfo.add({
           data: result.detail.userInfo

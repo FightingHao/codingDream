@@ -1,0 +1,17 @@
+.avatarBox{
+  padding: 100rpx 275rpx;
+  text-align: center;
+}
+.avatar{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 200rpx;
+}
+.imageBox{
+  text-align: center;
+}
+.image{
+  width: 180rpx;
+  height: 180rpx;
+  margin: 10rpx;
+}

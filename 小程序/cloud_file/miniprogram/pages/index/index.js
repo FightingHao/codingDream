@@ -6,16 +6,44 @@ Page({
     userList: []
   },
   getUserInfo(result) {
+    console.log(result)
     wx.cloud.callFunction({
       name: 'getOpenId',
       complete: res => {
-        userInfo.add({
-          data: result.detail.userInfo
-        }).then(res => console.log(res))
+        let openid = res.result.openId
+        userInfo
+          .where({
+            _openid: openid
+          }).count()
+          .then(res => {
+            console.log(res)
+            if (res.total == 0) {
+              userInfo
+                .add({
+                  data: result.detail.userInfo
+                })
+                .then(res => console.log(res))
+            } else {
+              wx.showToast({
+                title: '不能重复加'
+              })
+            }
+          })
         console.log(res)
       }
     })
   },
+
+  onLoad() {
+    userInfo
+      .get()
+      .then(res => {
+        this.setData({
+          userList: res.data
+        })
+      })
+  },
+
   onShareAppMessage(res) {
     return {
       title: '分享',

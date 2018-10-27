@@ -28,7 +28,7 @@ exports.main = async () => {
   console.log(postResponse.body)
   // await 让我们的代码等待一下 只有async 才可以用
 
-  // await 在forEach中不起作用
+  // await 在map中不起作用
   /*const photos = await db.collection('photos').get()
     let photoInfos = [];
 

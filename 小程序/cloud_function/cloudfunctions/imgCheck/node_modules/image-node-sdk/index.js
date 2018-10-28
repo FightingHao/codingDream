@@ -1,0 +1,1 @@
+exports.ImageClient = require('./libs/BaseService');

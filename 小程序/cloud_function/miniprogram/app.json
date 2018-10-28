@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/imageCheck/imageCheck",
     "pages/index/index"
   ],
   "window": {

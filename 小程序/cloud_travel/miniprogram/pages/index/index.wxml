@@ -1,0 +1,20 @@
+<import src="../../components/travelCircle/travelCircle.wxml" />
+
+<view class="container">
+  <view class="adInfos">
+    <swiper wx:if="{{ads.length}}" autoplay="{{true}}" indicator-dots="{{true}}" circular="{{true}}">
+      <block wx:for="{{ads}}" wx:for-item="ad" wx:key="ad._id">
+        <swiper-item>
+          <image src="{{ad.pic}}" data-id="{{ad._id}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="hotTravelCircle">
+    <view class="title">
+      <view class="txt f32 fw fc3">最新</view>
+      <navigator class="more f32 fc9" url="../travel/travel" open-type="switchTab">More</navigator>
+    </view>
+  </view>
+  <template is="travelCircle" data="{{item:item}}"></template>
+</view>

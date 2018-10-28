@@ -1,0 +1,74 @@
+.travelItem{
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  height: auto;
+}
+.travelItem .itemTitle{
+  padding:30rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+.travelItem .itemTitle image{
+  width:90rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+}
+.travelItem .itemTitle .itemTitleTxt{
+  height: 90rpx;
+  line-height: 45rpx;
+  margin-left: 30rpx;
+}
+.travelItem .itemScroll{
+  padding-bottom: 30rpx;
+  width: 100%;
+  height: 304rpx;
+  white-space: nowrap;
+}
+.travelItem .itemScroll image{
+  display: inline-block;
+  width:400rpx;
+  height: 304rpx;
+  border-radius: 10rpx;
+  margin:0 15rpx;
+}
+.travelItem .itemScroll image:first-child{
+  margin-left:30rpx;
+}
+.travelItem .itemScroll image:last-child{
+  margin-right: 30rpx;
+}
+.travelItem .itemSummary{
+  padding:0 30rpx;
+}
+.travelItem .itemAddTime{
+  padding: 0 30rpx 20rpx 30rpx;
+}
+.travelItem .itemAddTime::before{
+  content: " * ";
+  color:rgb(4, 133, 255);
+  vertical-align: middle;
+}
+.travelItem .itemBottom{
+  padding:20rpx 0rpx 30rpx 0rpx;
+  margin:0rpx 30rpx;
+  border-top:2rpx solid #999;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+}
+.travelItem .itemBottom .itemBottomViewTime image{
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin-left: -10rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+.travelItem .itemBottom .itemBottomOther image{
+  width:30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+}

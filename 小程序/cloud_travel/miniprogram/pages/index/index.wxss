@@ -1,0 +1,25 @@
+.adInfos{
+  width:100%;
+  height: 240px;
+  margin-bottom: 30rpx;
+}
+.adInfos swiper{
+  width:100%;
+  height: 100%;
+}
+.adInfos swiper image{
+  width:100%;
+}
+.hotTravelCircel{
+  width: 100%;
+  background-color:#fff;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:30rpx 30rpx 0rpx 30rpx;
+}
+.travelItem .itemBottom{
+  display: none;
+}

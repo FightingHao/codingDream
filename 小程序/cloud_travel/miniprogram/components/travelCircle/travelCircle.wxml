@@ -1,0 +1,11 @@
+<template name="travelCircle">
+  <view class="travelItem">
+    <view class="itemTitle">
+      <image src="{{item.user.avatar}}" mode="aspectFill"></image>
+      <view class="itemTitleTxt fc9">
+        <view class="f28 fc3 fw">{{item.user.nickName}}</view>
+        <view class="f24">{{item.user.summary}}</view>
+      </view>
+    </view>
+  </view>
+</template>

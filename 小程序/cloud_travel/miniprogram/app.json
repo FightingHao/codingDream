@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/travel",
+    "pages/travel/travel",
+    "pages/my/my"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icon/icon_home.png",
+        "selectedIconPath": "images/icon/icon_home_hl.png"
+      },
+      {
+        "pagePath": "pages/travel/travel",
+        "text": "旅游圈",
+        "iconPath": "images/icon/icon_travel.png",
+        "selectedIconPath": "images/icon/icon_travel_hl.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/icon/icon_my.png",
+        "selectedIconPath": "images/icon/icon_my_hl.png"
+      }
+    ]
+  }
+}

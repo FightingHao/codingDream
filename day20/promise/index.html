@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 执行完主线程 再轮询
+    // await只为许诺将来能够完成的事而等待
+    async function f() {
+      let res = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log('aaaa')
+          resolve('correct')
+        }, 1000);
+      })
+      console.log(res)
+      console.log('bbbb')
+    }
+    f()
+  </script>
+</body>
+
+</html>

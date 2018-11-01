@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>tween</title>
+  <style>
+    #target {
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="target"></div>
+  <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
+  <script>
+    let position,
+      target,
+      tween,
+      tweenBack;
+    init();
+    animate();
+    function init() {
+      position = { x: 100, y: 100, rotation: 0 };
+      target = document.getElementById('target');
+      tween = new TWEEN.Tween(position)
+        .to({ x: 700, y: 200, rotation: 359 }, 2000)
+        .delay(1000)
+        .easing(TWEEN.Easing.Elastic.InOut)
+        .onUpdate(update);
+      tweenBack = new TWEEN.Tween(position)
+        .to({ x: 100, y: 100, rotation: 0 }, 3000)
+        .easing(TWEEN.Easing.Elastic.InOut)
+        .onUpdate(update)
+      tween.chain(tweenBack);
+      tweenBack.chain(tween);
+      tween.start();
+    }
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time)
+    }
+    function update() {
+      target.style.webkitTransform = `translate(${position.x}px, ${position.y}px) rotate(${Math.floor(position.rotation)}deg)`;
+      target.style.transform = `translate(${position.x}px, ${position.y}px) rotate(${Math.floor(position.rotation)}deg)`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>filter</title>
+  <style>
+    body {
+      width: 800px;
+      margin: 0 auto;
+      padding: 20px
+  }
+  button {
+      background: #ccc;
+      border: 1px solid #000;
+      border-radius: 5px;
+      margin-right: 5px;
+  }
+  button:hover {
+      color: #fff;
+      background: #555;
+  }
+  .video-container {
+      height: 363px;
+      overflow: hidden;
+  }
+  video {
+      -moz-transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="video-container">
+    <video id="main-video" control autoplay>
+      <source src="nasa.mp4" />
+      <source src="nasa.webm" />
+    </video>
+  </div>
+  <p>
+    <button id="zoom-in" type="button">Zoom in</button>
+    <button id="zoom-out" type="button">Zoom out</button>
+    <button id="rotate-left" type="button">Rotate left</button>
+    <button id="rotate-right" type="button">Rotate right</button>
+  </p>
+  <p>
+    <button type="button" id="add-blur">Blur</button>
+    <button type="button" id="invert">Invert</button>
+    <button type="button" id="black-and-white">Black and white</button>
+    <button type="button" id="noir">Noir</button>
+  </p>
+  <p></p>
+  <svg id="image" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="video-blur">
+        <feGaussianBlur stdDeviation="5">
+      </filter>
+      <filter id="inverse">
+        <feComponentTransfer>
+          <feFuncR type="table" tableValues="1 0">
+            <feFuncG type="table" tableValues="1 0">
+              <feFuncB type="table" tableValues="1 0">
+        </feComponentTransfer>
+      </filter>
+      <filter id="blackandwhite">
+        <feColorMatrix values="0.3333 0.3333 0.3333 0 0
+                                      0.3333 0.3333 0.3333 0 0
+                                    0.3333 0.3333 0.3333 0 0
+                                    0      0      0      1 0" />
+      </filter>
+      <filter id="noir-filter">
+        <feGaussianBlur stdDeviation="1.5" />
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 .5 1 1" />
+          <feFuncG type="discrete" tableValues="0 .5 1" />
+          <feFuncB type="discrete" tableValues="0" />
+        </feComponentTransfer>
+      </filter>
+
+    </defs>
+  </svg>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const mainVideo = document.getElementById("main-video"),
+        zoomIn = document.getElementById("zoom-in"),
+        zoomOut = document.getElementById("zoom-out"),
+        rotateLeft = document.getElementById("rotate-left"),
+        rotateRight = document.getElementById("rotate-right"),
+        addBlur = document.getElementById("add-blur"),
+        invert = document.getElementById("invert"),
+        blackAndWhite = document.getElementById("black-and-white"),
+        noir = document.getElementById("noir"),
+        browserTransforms = ["transform", "WebkitTransform", "MozTransfor", "OTransform", "msTransform"];
+
+      let zoom = 1,
+        rotation = 0,
+        browserTransformStyle;
+
+      for (var i = 0, l = browserTransforms.length, currentStyle; i < l; i++) {
+        // 浏览器嗅探
+        currentStyle = browserTransforms[i];
+        if (currentStyle in mainVideo.style) {
+          browserTransformStyle = currentStyle;
+          break;
+        }
+      }
+
+      zoomIn.addEventListener("click", function () {
+        mainVideo.style[browserTransformStyle] = `scale(${parseFloat(zoom += 0.5)}) rotate(${rotation}deg)`;
+      }, false);
+      zoomOut.addEventListener("click", function () {
+        mainVideo.style[browserTransformStyle] = `scale(${parseFloat(zoom -= 0.5)}) rotate(${rotation}deg)`;
+      }, false);
+
+      addBlur.addEventListener('click', () => {
+        mainVideo.style.filter = 'url(#video-blur)'
+      })
+
+      invert.addEventListener('click', function () {
+        mainVideo.style.filter = 'url(#inverse)'
+      })
+
+      blackAndWhite.addEventListener('click', () => {
+        mainVideo.style.filter = 'url(#blackandwhite)'
+      })
+
+      noir.addEventListener('click', () => {
+        mainVideo.style.filter = 'url(#noir-filter)'
+      })
+    });
+
+
+  </script>
+</body>
+
+</html>

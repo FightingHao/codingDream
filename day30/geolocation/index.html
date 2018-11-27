@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Geolocation</title>
+</head>
+
+<body>
+  <h1>HTML5 Geolocation Distance Tracep#status</h1>
+  <p id="status">
+    HTML5 Geoloction is <strong>not<strong> supported in your browser.
+  </p>
+  <table border="1">
+    <tr>
+      <td width="40" scope="col">Latitude</td>
+      <td width="114" id="latitude">Latitude?</td>
+    </tr>
+    <tr>
+      <td>longitude</td>
+      <td id="longitude">longitude?</td>
+    </tr>
+    <tr>
+      <td>Accuracy</td>
+      <td id="accuracy">accuracy?</td>
+    </tr>
+    <tr>
+      <td>Last timestamp</td>
+      <td id="timestamp">timestamp?</td>
+    </tr>
+    <h4 id="currDist">Current distance traveled: 0.0KM</h4>
+    <h4 id="totalDist">Total distance traveled: 0.0KM</h4>
+  </table>
+  <script>
+    function loadDemo() {
+      if (navigator.geolocation) {
+        updateStatus("HTML5 Geolocation is supported in your browser.");
+        navigator.geolocation.watchPosition(updateLocation, handleLocationError, { maximumAge: 20000 })
+        console.log(navigator.geolocation.watchPosition(updateLocation))
+      }
+    }
+    function updateLocation(position) {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      let accuracy = position.coords.accuracy;
+      let timestamp = position.timestamp;
+      console.log(position)
+      console.log(latitude, longitude, accuracy, timestamp);
+
+      document.getElementById("latitude").innerHTML = latitude;
+      document.getElementById("longitude").innerHTML = longitude;
+      document.getElementById("accuracy").innerHTML = accuracy;
+      document.getElementById("timestamp").innerHTML = timestamp;
+      if (accuracy >= 500) {
+        updateStatus('Need more accurate ')
+      }
+
+    }
+    function handleLocationError(error) {
+      switch (error.code) {
+        case 0:
+          updateStatus("There was an error while retrieving your location:" + error.message);
+          break;
+        case 1:
+          updateStatus("The user prevented this page from retriving a location");
+          break;
+        case 2:
+          updateStatus("The browser was unable to determin your location" + error.message);
+          break;
+        case 3:
+          updateStatus("Timeout")
+          break;
+
+      }
+    }
+    function updateStatus(message) {
+      document.getElementById('status').innerHTML = message;
+    }
+    window.addEventListener("load", loadDemo, false);
+  </script>
+</body>
+
+</html>

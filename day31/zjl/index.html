@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>周杰伦专场</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    .wrap {
+        width: 640px;
+        margin: 10px auto;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    #canvas {
+        position: absolute;
+    }
+    .wrap h1 {
+        color: #00a1f4;
+    }
+    .wrap input {
+        vertical-align: middle;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>听妈妈的话 - 周杰伦</h1>
+    <div class="main">
+      <canvas id="canvas"></canvas>
+      <video src="mv.mp4" id="video" controls width="720" height="480"></video>
+    </div>
+    <div class="content">
+      <input type="text" id="text">
+      <input type="button" id="btn" value="发弹幕">
+      <input type="color" id="color">
+      <input type="range" id="range" max="40" min="20">
+    </div>
+  </div>
+
+  <!-- <script src="./src/canvas_barrage.js"></script> -->
+  <script src="./bundle.js"></script>
+<!--   <script>
+    (function () {
+      import CanvasBarrage from './src/canvas_barrage.js'
+      let data = [
+        {
+          value: '啊啊啊啊啊啊啊啊啊啊',
+          time: 5,
+          color: 'red',
+          speed: 1,
+          fontSize: 22
+        },
+        {
+          value: 'hhhhhhhhhhhhhhhh',
+          time: 10,
+          color: 'red',
+          speed: 1,
+          fontSize: 22
+        },
+        {
+          value: '好好好好好好好好好好好好',
+          time: 15,
+          color: 'red',
+          speed: 1,
+          fontSize: 22
+        }
+      ]
+      const textInput = document.getElementById('text')
+      const btn = document.getElementById('btn')
+      const canvas = document.getElementById('canvas')
+      // 网页引入游戏 3D VR AR WebGL
+      const video = document.getElementById('video')
+      let canvasBarrage = new CanvasBarrage(canvas, video, { data })
+      btn.addEventListener('click', function () {
+        let value = textInput.value
+        console.log(value)
+      })
+      textInput.addEventListener('keyup', function (e) {
+        let key = e.keyCode
+        let value = this.value
+        console.log(key)
+        /* if(key === 13) {
+          send()
+        } */
+        key === 13 && send(value)
+      })
+
+      function send(value) {
+        if (!value) return
+        console.log(value)
+      }
+    })()
+  </script> -->
+</body>
+
+</html>

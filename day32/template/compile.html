@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>模板编译</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script type="text/html" id="user_tmpl">
+    <% for(var i = 0; i < users.length; i++) {%>
+      <li>
+        <a href="<%= users[i].url%>">
+          名称：<%= users[i].name %>
+        </a>
+      </li>
+    <% }%>
+  </script>
+  <script>
+    // eval template compile?
+    // script innerHTML eval for
+    // var p = [];
+    // /<% 正则掉(.+?) %>/g $1  =  for(可执行的字符串)
+    // /<%= (.+?) %>/g  push(users[i].name)
+    // p.push($1)
+    (function () {
+      // tmpl 模板编译函数 _.template
+      // @params str 待编译的模板字符串，<%= %>
+      // @params data 数据源
+      window.tmpl = function (str, data) {
+        var string = "var p=[];p.push('" +
+          str
+            .replace(/[\r\t\n]/g, "")
+            .replace(/<%=(.*?)%>/g, "');p.push($1);p.push('")
+            .replace(/<%/g, "');")
+            .replace(/%>/g, "p.push('")
+          + "');";
+        // console.log(string);
+        eval(string);
+        return p.join('');
+      }
+    })()
+    const template = document.getElementById('user_tmpl').innerHTML;
+    const users = [
+      { "name": "Kevin", "url": "http://localhost" },
+      { "name": "Daisy", "url": "http://localhost" },
+      { "name": "Kelly", "url": "http://localhost" }
+    ]
+    document.getElementById('container').innerHTML = tmpl(template, users);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="javascript:saveData();" name="userForm">
+    <div class="fieldset">
+      <label for="">用户名</label>
+      <input type="text" name="username" required>
+    </div>
+    <div class="fieldset">
+      <label for="">邮箱</label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="fieldset">
+      <input type="submit" value="保存">
+      <button type="button" onclick="localStorage.removeItem('user'); location.reload();">清空</button>
+    </div>
+  </form>
+
+  <script>
+    const usernameInput = document.forms['userForm']['username']
+    const emailInput = document.forms['userForm']['email']
+
+    init()
+
+    function init() {
+      if (localStorage.getItem('user')) {
+        const user = JSON.parse(window.localStorage.getItem('user'))
+        usernameInput.value = user.username
+        emailInput.value = user.email
+      }
+    }
+
+    function saveData() {
+      const username = usernameInput.value.trim()
+      const email = emailInput.value.trim()
+      window.localStorage.setItem('user', JSON.stringify({ username, email }))
+      // window.localStorage.setItem('email', email)
+    }
+
+    fetch('./info.json')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  </script>
+</body>
+
+</html>

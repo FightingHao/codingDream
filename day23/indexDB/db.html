@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IndexDB</title>
+</head>
+
+<body>
+
+
+  <script>
+    // 前端数据库  Web SQL 关系型数据库  IndexedDB no-sql
+    // PWA offline App
+
+    // 1.打开数据库 名字 版本
+    const request = window.indexedDB.open('kft', 1)
+    let db
+
+    request.onerror = function (event) {
+      // 不支持这个api 硬盘不够
+      console.log('数据库打开报错')
+    }
+    request.onsuccess = function (event) {
+      console.log(event)
+      db = request.result
+      console.log(db)
+      // add()
+      read()
+    }
+
+    request.onupgradeneeded = function (event) {
+      console.log('upgrad')
+      db = event.target.result
+      // 储存对象集合
+      if (!db.objectStoreNames.contains('person')) {
+        let objectStore = db.createObjectStore('person', { keyPath: 'id' })
+        objectStore.createIndex('name', 'name', { unique: false })
+        objectStore.createIndex('email', 'email', { unique: true })
+      }
+    }
+
+    function add() {
+      // 索引 inde createIndex 查询meet 索引
+      // 事务
+      const request
+        = db.transaction(['person'], 'readwrite')
+          .objectStore('person')
+          .add({
+            id: 1,
+            name: '张三',
+            age: 22,
+            single: true,
+            email: 'zhangsan@16.com'
+          })
+      request.onsuccess = function () {
+        console.log('数据储存成功')
+      }
+      request.onerror = function () {
+        console.log('数据写入失败')
+      }
+    }
+
+    function read() {
+      var transaction = db.transaction(['person'])
+      var objectStore = transaction.objectStore('person')
+      var request = objectStore.get(1)
+
+      request.onsuccess = function () {
+        if (request.result) {
+          console.log(`Name: ${request.result.name}`)
+          console.log(`Age: ${request.result.age}`)
+          console.log(`Email: ${request.result.email}`)
+        } else {
+          console.log('未获得数据')
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

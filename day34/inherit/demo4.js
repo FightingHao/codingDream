@@ -1,0 +1,10 @@
+let str = 'aaaa'; console.log(typeof str) // string
+let num = 1; console.log(typeof num) // number
+let bool = true; console.log(typeof bool) // boolean
+let n = null; console.log(typeof n) // object
+let u = undefined; console.log(typeof u) // undefined
+let array = []; console.log(typeof array) // object
+let obj = {}; console.log(typeof obj) // object
+let fn = function () { }; console.log(typeof fn) // function
+let regexp = /^\d$/; console.log(typeof regexp) // object
+let date = new Date(); console.log(typeof date) //object

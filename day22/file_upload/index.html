@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 拖拽区域 领空*/
+    .list-group {
+      border: 2px dashed #ccc;
+      min-height: 100px;
+      padding: 10px;
+    }
+
+    .list-group p {
+      color: #ccc;
+      line-height: 100px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    #eventstatus {
+      margin-top: 10px;
+    }
+
+    ul, li {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header" class="page-header">
+    <div class="container">
+      <h1>文件列表</h1>
+      <h5>filelist</h5>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      <ul class="list-group row clearfix">
+
+      </ul>
+    </div>
+
+    <form action="" name="upload">
+      <a href="javascript:void(0);" class="btn btn-primary" id="selectbtn">上传文件</a>
+      <input type="file" name="fileselect" style="display: none" multiple accept="image/*">
+    </form>
+
+    <div id="eventStatus"></div>
+  </div>
+
+  <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    $(function () {
+      // 表单查找
+      const fileselect = document.forms['upload']['fileselect']
+      const listGroup = document.querySelector('.list-group')
+      const selectBtn = document.getElementById('selectbtn')
+      fileselect.addEventListener('change', displayFileInfo, false)
+      selectBtn.addEventListener('click', function () {
+        fileselect.click()
+      })
+      listGroup.innerHTML = '<P class="hint">拖拽文件到这里</P>'
+      listGroup.addEventListener('dragover', onDragOver, false)
+      listGroup.addEventListener('drop', displayFileInfo, false)
+
+      function onDragOver(event) {
+        event.preventDefault()
+        event.stopPropagation()
+        $('.list-group p').html('放开上传')
+      }
+
+      function displayFileInfo() {
+        event.preventDefault()
+        event.stopPropagation()
+        listGroup.innerHTML = ''
+        $('.list-group p').html('拖拽文件到这里')
+        // 普通上传和拖拽上传
+        const files = event.target.files || event.dataTransfer.files
+        // console.log(files)
+
+        for (const file of files) {
+          let li = document.createElement('li'),
+            img = document.createElement('img'),
+            // 前端 文件到达后端之前先看到图片
+            // 前端Url
+            url = window.URL.createObjectURL(file),
+            thumbnailContainer = document.createElement('li'),
+            progress = document.createElement('div'),
+            progressBar = document.createElement('div')
+
+          progressBar.classList.add('progress-bar')
+          progress.classList.add('progress', 'progress-striped', 'active')
+          progress.appendChild(progressBar)
+
+          thumbnailContainer.classList.add('col-md-3')
+          img.src = url
+          img.onload = function () {
+            window.URL.revokeObjectURL(url)
+          }
+          img.classList.add('thumbnail')
+          thumbnailContainer.appendChild(img)
+          listGroup.appendChild(thumbnailContainer)
+          listGroup.classList.add('list-group-item')
+
+          let content = document.createTextNode(
+            file.name + '  ' +
+            file.type + '  ' +
+            fixedFloat(file.size) + 'M  ' +
+            file.lastModifiedDate.toLocaleDateString() + '  ' +
+            file.lastModifiedDate.toLocaleTimeString()
+          )
+
+          thumbnailContainer.appendChild(content)
+
+          const reader = new FileReader()
+          reader.readAsBinaryString(file)
+          reader.onloadstart = function () {
+            document.getElementById('eventStatus').appendChild(progress)
+          }
+
+          reader.onprogress = function (event) {
+            let progressStatus = Math.round(event.loaded / event.total * 100) + '%'
+            progressBar.style.width = progressStatus
+          }
+        }
+      }
+
+      function fixedFloat(f) {
+        return parseFloat(f / (1024 * 1024)).toFixed(2)
+      }
+    })
+  </script>
+</body>
+
+</html>

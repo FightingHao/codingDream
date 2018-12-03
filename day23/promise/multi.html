@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const postsPromise
+      = fetch('https://www.easy-mock.com/mock/5bca9240e6742c1bf8220bbd/kicamp/post')
+    const streetCarsPromise
+      = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris')
+    /* postsPromise
+      .then(data => data.json()) // 返回一个promise对象
+      .then(data => {
+        console.log(1)
+        console.log(data)
+        return streetCarsPromise
+      })
+      .then(data => data.json())
+      .then(data => {
+        console.log(2)
+        console.log(data)
+      }) */
+
+    Promise
+      .all([postsPromise, streetCarsPromise])
+      .then(responses => {
+        // console.log(responses)
+        return Promise.all(responses.map(res => res.json()))
+      })
+      .then(responses => {
+        console.log(responses)
+      })
+      .catch(err => {
+        console.log('出错了')
+      })
+
+  </script>
+</body>
+
+</html>

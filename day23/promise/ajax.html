@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function ajax(callback) {
+      const xhr = new XMLHttpRequest()
+      return function (url) {
+        xhr.open('get', url, true)
+        xhr.send()
+        xhr.onreadystatechange = function () {
+          if(xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.responseText)
+          }
+        }
+      }
+    }
+
+    const ajaxId = ajax((data) => {
+      const ajaxInfo = ajax((data) => {
+        const info = JSON.parse(data)
+        console.log(info)
+      })
+      const id = JSON.parse(data).id
+      ajaxInfo(`./info.json?id=${id}`)
+    })
+
+    ajaxId('./id.json')
+
+
+
+
+  </script>
+</body>
+
+</html>

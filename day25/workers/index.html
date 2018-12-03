@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #waitImg {
+      opacity: 0;
+    }
+
+    #waitImg.fadeIn {
+      animation: show 2s forwards;
+    }
+
+    @keyframes show {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="" alt="" id="waitImg">
+
+  <script>
+    // 图片的延迟加载
+    const url = 'http://img10.360buyimg.com/img/s600x600_jfs/t3586/215/2086933702/144606/c5885c8b/583e2f08N13aa7762.png'
+    const oImg = document.getElementById('waitImg')
+    const img = document.createElement('img')
+    img.style.display = 'none'
+    img.src = url
+    img.onload = function () {
+      // 下载完成 本地有缓存
+      oImg.src = url
+      oImg.classList.add('fadeIn')
+    }
+    document.body.appendChild(img)
+  </script>
+</body>
+
+</html>

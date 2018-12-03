@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Workers</title>
+</head>
+
+<body>
+  <!-- 大量的计算 数据的请求 交给Web Workers 多线程 并行计算 -->
+  <script>
+    // 代码执行， 在主线程之外， 开辟了新的地方 work.js
+    const worker = new Worker('work.js')
+    worker.postMessage({ cmd: 'start', msg: '下载图片'})
+    worker.onmessage = function (event) {
+      console.log('Received message ' + event.data)
+      doSomething()
+    }
+
+    function doSomething() {
+      worker.postMessage('Work done!')
+      worker.terminate()
+    }
+  </script>
+</body>
+
+</html>

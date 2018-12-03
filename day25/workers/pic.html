@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="" alt="" data-id="0" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3586/215/2086933702/144606/c5885c8b/583e2f08N13aa7762.png'>
+  <img src="" alt="" data-id="1" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3643/111/394078676/159202/a59f6b72/5809b3ccN41e5e01f.jpg'>
+  <img src="" alt="" data-id="2" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3388/167/1949827805/115796/6ad813/583660fbNe5c34eae.jpg'>
+  <img src="" alt="" data-id="3" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3163/281/5203602423/192427/db09be58/5865cb7eN808cc6f4.png'>
+  <img src="" alt="" data-id="4" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3634/225/410542226/185677/c17f0ecf/5809b073N364fe77e.jpg'>
+  <img src="" alt="" data-id="5" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3808/206/329427377/119593/a8cf7470/580df323Nb641ab96.jpg'>
+  <img src="" alt="" data-id="6" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3805/133/325945617/116002/e90e0bdf/580df2b5Ncb04c5ac.jpg'>
+  <img src="" alt="" data-id="7" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3046/316/3037048447/184004/706c779e/57eb584fN4f8b6502.jpg'>
+  <img src="" alt="" data-id="8" origin-src='http://img10.360buyimg.com/img/s600x600_jfs/t3580/212/1841964843/369414/e78739fb/58351586Ne20ac82a.jpg'>
+
+  <script>
+    let w = new Worker('pic.js')
+    let arr = Array.from(document.querySelectorAll('img[origin-src]'))
+
+    arr = arr.map(item => {
+      return {
+        src: item.getAttribute('origin-src'),
+        id: item.dataset.id
+      }
+    })
+    console.log(arr)
+    w.postMessage({ pic: arr })
+    w.onmessage = function (e) {
+      const imgFile = e.data.result
+      const id = e.data.id
+      const URL = window.URL || window.webkitURL
+      const imgURL = URL.createObjectURL(imgFile)
+      // 在属性选择器中 ${id}要加双引号
+      document.querySelector(`img[data-id="${id}"]`).src = imgURL
+    }
+  </script>
+</body>
+
+</html>

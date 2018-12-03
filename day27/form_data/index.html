@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 demo with FormData</title>
+  <style>
+    body {
+      font: 12px "Helvetica Neue", "Helvetica", sans-serif;
+      background: #ccc;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    img {
+      padding: 10px;
+      box-shadow: 0 0 10px 2px #ccc;
+      margin-bottom: 5px;
+    }
+
+    figcaption {
+      font-style: italic;
+    }
+
+    .container {
+      width: 900px;
+      background: #fff;
+      border-radius: 10px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    header {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #000;
+    }
+
+    .main-content {
+      overflow: hidden;
+    }
+
+    .additional-content {
+      float: right;
+      width: 300px;
+      height: 400px;
+      padding: 10px;
+      background: #ccc;
+      border-radius: 5px
+    }
+
+    .page-footer {
+      border-top: 1px solid #000;
+      margin-top: 30px;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header class="header" role="banner">
+      <h1>HTML5 demo with FormData</h1>
+    </header>
+
+    <div class="main">
+      <article class="main-content" role="main">
+
+        <aside class="additional-content" aria-live="polite" aria-relevant="additions" aria-atomic="true">
+          <p>This is a demo page displaying how you can use FormData to send files and values to the servers through
+            XMLHttpRequest. The response from the server is the contents of a blob, turned itno a data URL. That image
+            is then being shoown in the image below (use Developer Tools in your web browser to check the source of
+            it).</p>
+          <p>In the <a href="js/base.js">base.js</a> file you can see the code to achieve this.</p>
+          <p>All the <a href="https://github.com/robnyman/robnyman.github.com">code is available at GitHub</a>, for
+            this page and other related demos.</p>
+        </aside>
+
+        <h2>Rhino, sent with FormData, retrieved back and shown through a data URL.</h2>
+        <figure>
+          <img id="rhino" src="rhino.png" alt="A close up of a rhino">
+          <figcaption>Rhinos are big!</figcaption>
+        </figure>
+
+      </article>
+    </div>
+
+    <footer class="page-footer" role="contentinfo">
+      Created by <a href="http://robertnyman.com/">Robert Nyman</a><br>
+      <a href="https://github.com/robnyman/robnyman.github.com">All demo code at GitHub</a>.
+    </footer>
+
+  </div>
+  <script>
+    (function () {
+      const xhr = new XMLHttpRequest()
+      // queryString
+      xhr.open('GET', 'getInfo?id=123', true)
+      xhr.onreadystatechange = function () {
+        if(xhr.status === 200 && xhr.readyState === 4) {
+          const info = JSON.parse(xhr.responseText)
+          document.querySelector('figcaption').innerHTML = `Mr Right ${info.username} 哈哈`
+        }
+      }
+      xhr.send()
+    })()
+  </script>
+</body>
+
+</html>

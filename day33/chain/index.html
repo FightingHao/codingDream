@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>链式调用</title>
+  <style>
+    div {
+      display: none;
+      height: 200px;
+      background: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <div></div>
+  <!-- <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script> -->
+  <script>
+    /* $(function () {
+      var $div = $('div')
+        .eq(0)
+        .css('width', '200px')
+        .fadeIn(3000)
+      console.log($div)
+    }) */
+    // 类
+    function JQuery(selector) {
+      this.elements = document.querySelectorAll(selector)
+    }
+
+    JQuery.prototype = {
+      eq: function (index) {
+        this.elements = [this.elements[index]]
+        return this  // 链式调用核心
+      },
+      css: function (prop, val) {
+        this.elements.forEach(function(element) {
+          element.style[prop] = val
+        })
+        return this
+      },
+      show: function () {
+        this.css('display', 'block')
+        return this
+      }
+    }
+
+    window.$ = function (selector) {
+      return new JQuery(selector)
+    }
+
+    $('div')
+      .eq(0)
+      .css('width', '200px')
+      .show()
+  </script>
+</body>
+
+</html>

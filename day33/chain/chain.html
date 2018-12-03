@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>loadsh chain</title>
+</head>
+
+<body>
+
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.core.min.js"></script>
+  <script>
+    // _ 是 lodash 命名空间
+    // chain 给我们链式调用的能力
+    // chain 是静态方法
+
+    function chainResult(instance, obj) {
+      return instance._chain ? _.chain(obj) : obj
+    }
+
+    var _ = function (obj) {
+      if (!(this instanceof _))
+        return new _(obj)
+      this._wrapper = obj
+    }
+
+    _.chain = function (obj) {
+      var instance = _(obj)
+      instance._chain = true
+      return instance
+    }
+
+    _.prototype = {
+      push: function (num) {
+        this._wrapper.push(num)
+        return chainResult(this, this._wrapper)
+      },
+
+      shift: function () {
+        this._wrapper.shift()
+        return chainResult(this, this._wrapper)
+      },
+
+      value: function () {
+        return this._wrapper
+      }
+    }
+
+    const arr = _.chain([1, 2, 3, 4])
+      .push(5)
+      .shift()
+      .value()  // 结束链式调用
+
+    console.log(arr)
+  </script>
+</body>
+
+</html>

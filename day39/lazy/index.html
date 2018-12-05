@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="javascript:;" id="btn">点击</a>
+  <script>
+    /* var foo = function () {
+      var t = +new Date()
+      foo = function () {
+        return t
+      }
+
+      return foo()
+    }
+
+    console.log(foo);
+
+    console.log(foo())
+    setTimeout(() => {
+      console.log(foo);
+
+      console.log(foo())
+    }, 2000); */
+
+    /* function addEvent(type, el, fn) {
+      // 浏览器嗅探
+      console.log(window.addEventListener)
+      if (window.addEventListener) {
+        el.addEventListener(type, fn, false)
+      } else if (window.attachEvent) {
+        el.attachEvent('on' + type, fn)
+      }
+    }
+    addEvent('click', document.getElementById('btn') , function () {
+      alert('hello')
+    }) */
+
+    function addEvent(type, el, fn) {
+      // 浏览器嗅探
+      if (window.addEventListener) {
+        // 惰性一下
+        addEvent = function (type, el, fn) {
+          el.addEventListener(type, fn, false)
+        }
+      } else if (window.attachEvent) {
+        addEvent = function (type, el, fn) {
+          el.attachEvent('on' + type, fn)
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

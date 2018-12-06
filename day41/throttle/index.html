@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    class HelloForm extends React.Component {
+      constructor(props) {
+        super(props)
+        // 节流一下 控制事件的执行 性能优化
+        this.log = _.throttle((event) => {
+          console.log(event.target.value)
+        }, 1000)
+      }
+
+      state = {
+        text: ''
+      }
+
+      handleSubmit = (event) => {
+        event.preventDefault()
+        console.log(`提交了${this.state.text}`)
+      }
+
+      handleChange = (event) => {
+        event.persist()
+        this.setState({
+          text: event.target.value
+        })
+        this.log(event)
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.text}
+              onChange={this.handleChange}
+            />
+            <button type="submit">提交</button>
+          </form>
+        )
+      }
+    }
+
+    class App extends React.Component {
+      state = {}
+      render() {
+        return (
+          <div>
+            <HelloForm />
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'))
+  </script>
+</body>
+
+</html>

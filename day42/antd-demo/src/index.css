@@ -1,0 +1,148 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: sans-serif;
+  background: #ffc425;
+  background: linear-gradient(to bottom, #ffc425 50%, #eaaa00 100%);
+  background-attachment: fixed;
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+a {
+  color: #0d181c;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Bevan', cursive;
+  font-weight: normal;
+  transform: rotate(-5deg) skew(-20deg);
+  margin: 2rem 0 2rem 0;
+}
+
+h1 a {
+  text-decoration: none;
+  font-size: 10rem;
+  text-shadow: 3px 3px 0 rgba(13,24,28,0.2);
+}
+
+.beer {
+  background: #fff;
+  padding: 1rem;
+  border-top: 1.5rem solid #e13e45;
+  flex: 1 0 auto;
+  margin: 2rem;
+  overflow: hidden;
+  width: calc(33.3% - 4rem);
+  box-shadow: 0 0 10px rgba(13,24,28,0.2);
+  transition: all 0.2s;
+}
+
+.beer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 2px rgba(13,24,28,0.3);
+}
+
+.beer a {
+  text-decoration: none;
+}
+
+.beer h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.beers {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+/*
+  Search
+*/
+.search {
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.search form {
+  display: flex;
+}
+
+.search form > * {
+  flex: 1;
+  background: #fff;
+  border: 0;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+.search form > *[type="submit"] {
+  flex-grow: 2;
+  background: #e13e45;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.search form > *[type="text"] {
+  flex-grow: 10;
+}
+/*
+  Loader
+*/
+.loader {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 100;
+}
+/*
+  Single Beer View
+*/
+.single-beer {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+}
+
+.single-beer .label {
+  width: 100%;
+}
+
+.single-beer img {
+  max-width: 100%;
+}
+
+.single-beer h3 {
+  font-size: 2rem;
+}
+
+.glass img {
+  float: left;
+  width: 200px;
+}

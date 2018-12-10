@@ -35,6 +35,39 @@ export default class Notes extends Component {
       })
   }
 
+  destoryEntity = (entity) => {
+    const _entities = this.state.entities.filter((_entity) => {
+      return _entity.$loki !== entity.$loki
+    })
+    this.setState({
+      entities: _entities
+    })
+    loadCollection('notes')
+      .then(collection => {
+        collection.remove(entity)
+        db.saveDatabase()
+      })
+  }
+
+  // 箭头函数赋值法
+  createEntity = () => {
+    // console.log(this)
+    loadCollection('notes')
+      .then((collection) => {
+        const entity = collection.insert({
+          body: ''
+        })
+        db.saveDatabase()
+        this.setState((prevState) => {
+          const _entities = prevState.entities
+          _entities.unshift(entity)
+          return {
+            entities: _entities
+          }
+        })
+      })
+  }
+
   render() {
     // render 和 return 中间写逻辑
     const entities = this.state.entities
@@ -42,6 +75,7 @@ export default class Notes extends Component {
       <Note
         key={entity.$loki}
         entity={entity}
+        destoryEntity={this.destoryEntity}
       />
     )
 
@@ -51,13 +85,16 @@ export default class Notes extends Component {
           <i className="paw icon" ></i>
         </h4>
         < button className="ui right floated basic violet button" onClick={this.createEntity}>添加笔记</button>
-        <div className="ui divided items">{noteItems}</div>
+        <div className="ui divided items">
+          {noteItems}
+          {
+            !entities.length
+            &&
+            <span className="ui small disabled header">还没有笔记，请按下'添加笔记'按钮</span>
+          }
+        </div>
       </div >
     )
   }
 
-  // 箭头函数赋值法
-  createEntity = () => {
-    console.log(this)
-  }
 }

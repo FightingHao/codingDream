@@ -5,16 +5,18 @@ import './index.css';
 import Beer from './Beer'
 import Single from './Single'
 import * as serviceWorker from './serviceWorker';
+import App from './App'
 
 ReactDOM.render(
-  <Router>
-    <div>
-      <Route exact path="/" component={Beer}></Route>
-      {/* 冒号 动态匹配 */}
-      <Route path="/search/:searchTerm" component={Beer}></Route>
-      <Route path="/beer/:beerId/:beerSlug" component={Single}></Route>
-    </div>
-  </Router>
+  // <Router>
+  //   <div>
+  //     <Route exact path="/" component={Beer}></Route>
+  //     {/* 冒号 动态匹配 */}
+  //     <Route path="/search/:searchTerm" component={Beer}></Route>
+  //     <Route path="/beer/:beerId/:beerSlug" component={Single}></Route>
+  //   </div>
+  // </Router>
+  <App/>
   , document.getElementById('root')
 );
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: green;
+      color: #fff;
+      text-decoration: none;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 10px;
+    }
+
+    #hello,
+    #hi {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      height: 500px;
+      width: 100%;
+      background: #666;
+      text-align: center;
+      line-height: 500px;
+      color: white;
+      font-size: 100px;
+      transition: all 2s;
+      transform: translateX(100%);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 瞄链接 -->
+  <!-- <a name="hello"></a>
+  haohao
+  <div style="height: 3000px;"></div>
+  <a href="#hello" class="btn">hello hash</a>
+  <div></div> -->
+
+  <a href="#/hello" class="btn">hello hash</a>
+  <a href="#/hi" class="btn">hi hash</a>
+  <div id="hello">hello</div>
+  <div id="hi">hi</div>
+  <script>
+    const hello = document.getElementById('hello')
+    const hi = document.getElementById('hi')
+    window.addEventListener('hashchange', e => {
+      var hashTag = window.location.hash.substring(1)
+      // console.log(hashTag)
+      if (hashTag == '/hello') {
+        hello.style.transform = 'translate(0, 0)'
+        hi.style.transform = 'translate(100%, 0)'
+      } else if (hashTag == '/hi') {
+        hello.style.transform = 'translate(100%, 0)'
+        hi.style.transform = 'translate(0, 0)'
+      }
+    })
+
+  </script>
+</body>
+
+</html>

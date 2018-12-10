@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>history</title>
+  <style>
+    .warp {
+      width: 400px;
+      height: 400px;
+      border: 1px solid grey;
+      margin: 0 auto;
+    }
+
+    .nav {
+      border-bottom: 1px solid grey;
+    }
+
+    .nav li {
+      display: inline-block;
+      list-style: none;
+    }
+
+    .nav li a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 15px;
+    }
+
+    .router {
+      padding: 20px;
+    }
+
+    a {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="warp">
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="javascript:;" data-path="index">首页</a>
+        </li>
+        <li>
+          <a href="javascript:;" data-path="news">新闻</a>
+        </li>
+        <li>
+          <a href="javascript:;" data-path="about">关于</a>
+        </li>
+      </ul>
+    </div>
+    <div id="root" class="router">
+
+    </div>
+  </section>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    (function () {
+      history.replaceState(null, null, '')
+      $('#root').html('<p>显示内容区域</p>')
+      $('a').on('click', function () {
+        var text = this.text
+        // console.log(text)
+        // var url = this.text
+        window.history.pushState(text, text, `/${text}`)
+        $('#root').html(`<P>${text}</p>`)
+      })
+      window.addEventListener('popstate', function (e) {
+        var text = e.state
+        // console.log(e);
+        $('#root').html(`<p>${text}</p>`)
+      })
+    })()
+  </script>
+</body>
+
+</html>

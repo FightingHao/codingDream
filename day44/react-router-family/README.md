@@ -1,0 +1,3 @@
+- params: /about /xxx ...
+- querystring: ?xxx=xxx&xxx=xxx
+- hashtag: #/xxx

@@ -1,0 +1,1 @@
+ajax + history 实现现代路由

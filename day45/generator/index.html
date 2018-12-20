@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Generator 生成器函数</title>
+</head>
+
+<body>
+  <script>
+    // promise -> Generator -> async await
+    //   then
+    // 函数中可以有多个异步处理的任务 执行顺序
+    // * => async
+    // const steps = async () => {
+
+    // }
+    // 他会生成一个迭代器 生成器函数
+    function ajax(url) {
+      fetch(url)
+        .then(data => data.json())
+        .then(data => dataGen.next(data))
+    }
+
+    function* steps() {
+      console.log('fetching beers')
+      const beers = yield ajax('http://api.react.beer/v2/search?q=hops&type=beer')
+      console.log(beers)
+
+      console.log('fetching wes')
+      const wes = yield ajax('http://api.github.com/users/wesbos')
+      console.log(wes)
+
+      console.log('fetching fat ioe')
+      const fatJoe = yield ajax('https://api.discogs.com/artists/51988')
+      console.log(fatJoe)
+    }
+
+    const dataGen = steps()
+    dataGen.next()
+  </script>
+</body>
+
+</html>

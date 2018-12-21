@@ -1,0 +1,5 @@
+{
+  "PORT": 3000,
+  "SERVER_URL": "http://127.0.0.1:3000",
+  "STATIC_PREFIXER": "http://127.0.0.1:3000/static"
+}

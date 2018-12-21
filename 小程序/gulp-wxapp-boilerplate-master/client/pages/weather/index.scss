@@ -1,0 +1,16 @@
+.wrapper {
+  .navigator {
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 0;
+    top: 480rpx;
+    width: 40rpx;
+    border-radius: 20rpx 0 0 20rpx;
+    padding: 10rpx 20rpx;
+    z-index: 9999999;
+    icon {
+      font-size: 28rpx;
+    }
+  }
+}

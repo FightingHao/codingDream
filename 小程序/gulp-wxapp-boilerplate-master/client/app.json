@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/weather/index",
+    "pages/diary/index"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "request": 3000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+}

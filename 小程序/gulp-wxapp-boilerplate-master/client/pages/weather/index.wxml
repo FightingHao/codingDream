@@ -1,0 +1,8 @@
+<view class="wrapper" style="background: url({{backgroundImage}}) center -178rpx / 100% no-repeat {{backgroundColor}};">
+  <view class="navigator" bindtap="goDiary">
+    <icon type="edit" />
+  </view>
+  <view class="container" id="canvas-wrapper" style="padding-top: {{paddingTop}}px">
+    <canvas canvas-id="effect" id="effect"></canvas>
+  </view>
+</view>

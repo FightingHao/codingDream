@@ -1,0 +1,15 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wxa7f0b1fa770fc8e9",
+	"projectname": "wepy-shop",
+	"miniprogramRoot": "dist/",
+	"condition": {}
+}

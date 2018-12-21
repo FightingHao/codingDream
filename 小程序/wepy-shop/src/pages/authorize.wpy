@@ -1,0 +1,56 @@
+<template>
+  <view class="authorize-container">
+    <image class="authorize-icon" src="../images/authorize.png" />
+    <view class="auth-item">商城申请获取以下权限</view>
+    <view class="auth-item">获取你的公开信息（头像、昵称等）</view>
+    <view class="btn-authorize">
+      <button open-type="getUserInfo" type="primary" lang="zh_CN" bindgetuserinfo="onGotUserInfo">授权</button>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy';
+export default class extends wepy.page {
+  config = {
+    navigationBarTitleText: '授权登录'
+  };
+
+  async onLoad() {
+    // 授权 => login => session(微信中间服务器)
+    // 如果应用第一次进来， 走完整流程
+    // 如果再次进来， session过期 storage 拿出 => login => session
+    let res = await wepy.getSetting();
+    if (res.authSetting['scope.userInfo']) {
+    } else {
+    }
+  }
+
+  onGotUserInfo(e) {
+    console.log(1)
+  }
+}
+</script>
+<style lang="less">
+page {
+  height: 100%;
+}
+.authorize-container {
+  height: 100%;
+  background: #fff;
+  text-align: center;
+  padding-top: 100rpx;
+  .authorize-icon {
+    width: 128rpx;
+    height: 128rpx;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 10rpx;
+  }
+  .auth-item {
+    padding: 5rpx 0;
+  }
+  .btn-authorize {
+    margin: 100rpx 50rpx;
+  }
+}
+</style>

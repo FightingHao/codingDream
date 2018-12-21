@@ -1,0 +1,63 @@
+<style lang="less">
+@import './styles/base';
+@import './styles/icon';
+@import './styles/style';
+</style>
+
+<script>
+// wpy是一块三明治 胶囊 wxml wxss js json 集中到一个文件 方便管理
+import wepy from 'wepy';
+import 'wepy-async-function';
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/home',
+      'pages/authorize',
+      'pages/classify',
+      'pages/shop_cart',
+      'pages/info'
+    ],
+    window: {
+      backgroundTextStyle: 'dark',
+      navigationBarBackgroundColor: '#FFFFFF',
+      navigationBarTitleText: 'shop',
+      navigationBarTextStyle: 'black',
+      enablePullDownRefresh: false,
+      backgroundColor: '#EFEFEF'
+    },
+    tabBar: {
+      color: '#999',
+      selectedColor: '#ff6a3c',
+      backgroundColor: '#fff',
+      borderStyle: 'black',
+      list: [
+        {
+          pagePath: 'pages/home',
+          text: '首页'
+        },
+        {
+          pagePath: 'pages/classify',
+          text: '分类'
+        },
+        {
+          pagePath: 'pages/shop_cart',
+          text: '购物车'
+        },
+        {
+          pagePath: 'pages/info',
+          text: '我'
+        }
+      ]
+    }
+  };
+  globalData = {};
+
+  constructor() {
+    super();
+    this.use('requestfix');
+    this.use('promisify');
+  }
+
+  async onLaunch(option) {}
+}
+</script>

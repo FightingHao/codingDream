@@ -1,0 +1,45 @@
+.tiger-progress-outer {
+  width: 100%;
+  display: inline-block;
+  margin-right: 0;
+  padding-right: 0;
+}
+.tiger-progress-inner {
+  vertical-align: middle;
+  display: inline-block;
+  background: #eeeeee;
+  border-radius: 100px;
+  position: relative;
+  width: 100%;
+}
+.tiger-progress-line {
+  width: 100%;
+  font-size: inherit;
+  position: relative;
+}
+.tiger-progress-show-info {
+  position: relative;
+  top: 10px;
+}
+.tiger-progress-text {
+  word-break: normal;
+  width: 2em;
+  text-align: left;
+  font-size: 1em;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+}
+.tiger-progress .tooltip .tooltip-inner {
+  box-shadow: 1px 1px 1px #c7c4c4;
+  border-radius: 10px;
+  color: #c7c4c4;
+  background: #fff;
+  border: 1px solid #c7c4c4;
+}
+.tiger-progress .tooltip .tooltip-arrow {
+  bottom: 1px;
+  border-top-color: #c7c4c4;
+}

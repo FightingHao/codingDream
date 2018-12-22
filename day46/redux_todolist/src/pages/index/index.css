@@ -1,0 +1,44 @@
+.input {
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #666;
+    width: 500px;
+    vertical-align: middle;
+}
+.list_wrap {
+    padding: 50px 20px;
+}
+.list {
+    margin: 20px 0;
+}
+.add,
+.del {
+    display: inline-block;
+    width: 120px;
+    height: 60px;
+    margin: 0 10px;
+    padding: 0 10px;
+    color: #333;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #C5D9E8;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+.add {
+    background-color: #5c89e4;
+    color: #fff;
+    border: 1px solid #5c89e4;
+}
+.del {
+    background-color: #fff;
+    color: #5c89e4;
+    border: 1px solid #5c89e4;
+    margin-left: 100px;
+}

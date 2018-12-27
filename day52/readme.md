@@ -6,4 +6,4 @@
   组件帅哥 不能见面 reducer小姐 要通过dispatch 媒婆
 
 - 要保护好数据 设置了 reducer 提供并且精确计算状态的函数
-- 组件只有dispatch一个action 才能执行 
+- 组件只有dispatch一个action 才能执行

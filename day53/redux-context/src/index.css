@@ -1,0 +1,35 @@
+body {
+  margin: 30px;
+  padding: 0;
+  font-family: sans-serif;
+}
+#root{
+  width: 400px;
+  border: 1px black solid;
+}
+.head{
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  border: 1px solid green;
+}
+.body{
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  border: 1px solid red;
+}
+.button{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn{
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+  background: #275b8c;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  margin: 10px;
+}

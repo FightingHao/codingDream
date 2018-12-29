@@ -21,4 +21,4 @@ context 四步
 
 全局的store 太烦了， 不是react 数据流的语法烦， context api 代码的重复
 dry dont repeat yourself 生命周期 _setUp() contextTypes
-connect react-redux HOC 
+connect react-redux HOC

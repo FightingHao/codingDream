@@ -102,3 +102,4 @@ this is my coding dream, Go for it !!
 ## React篇
 - <a href="https://juejin.im/post/5c1f01fef265da61587723f4">五星推荐的系列文章清单</a>
 - <a href="https://www.cnblogs.com/huzidaha/p/6603658.html">胡子大哈React.js 小书</a>
+- <a href="https://juejin.im/post/5b07caf16fb9a07aa83f2977">TypeScript 2.8下的终极React组件模式</a>

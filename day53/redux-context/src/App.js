@@ -7,7 +7,7 @@ import { createStore, storeChange } from './redux'
 
 export default class App extends Component {
   // 这个属性里的值 在内部 打破层次 拿到在顶级组件中共享的状态
-  static childContextTypes = {
+  /* static childContextTypes = {
     store: PropTypes.object,
     dispatch: PropTypes.func,
     subscribe: PropTypes.func,
@@ -26,7 +26,7 @@ export default class App extends Component {
 
     // 全局context
     return { store, dispatch, subscribe, getStore }
-  }
+  } */
 
   render() {
     return (

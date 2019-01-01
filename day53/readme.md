@@ -22,3 +22,6 @@ context 四步
 全局的store 太烦了， 不是react 数据流的语法烦， context api 代码的重复
 dry dont repeat yourself 生命周期 _setUp() contextTypes
 connect react-redux HOC
+
+- connect 封装， 有关的context的操作都交给他
+- 后代组件 只需要做自己的事

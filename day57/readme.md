@@ -1,1 +1,1 @@
-yarn add redux react-redux redux-thunk prop-types
+yarn add redux react-redux redux-thunk prop-types 

@@ -1,5 +1,5 @@
 yarn add imutable
-react(UI) + redux(data flow) + immutable(不可变数据) 
+react(UI) + redux(data flow) + immutable(不可变数据)
 
 reducer
 只有一部分更新了 丢掉了之前没更新的大部分

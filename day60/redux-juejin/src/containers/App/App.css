@@ -1,0 +1,8 @@
+html {
+  font-size: 12px;
+  font-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+  text-rendering: optimizeLegibility;
+  background-color: #f4f5f5;
+  color: #333;
+  word-break: break-all;
+}

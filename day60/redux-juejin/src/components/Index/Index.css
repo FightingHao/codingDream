@@ -1,0 +1,121 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  position: relative;
+  height: 5rem;
+}
+
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  color: #909090;
+  height: 5rem;
+  z-index: 250;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all .2s;
+}
+
+.main-header .visible {
+  transform: translateZ(0);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.main-header .container {
+  max-width: 960px;
+  min-width: 960px;
+  margin: auto;
+}
+
+.logo {
+  margin-right: 2rem;
+}
+
+.logo-img {
+  border-style: none;
+}
+
+.nav-menu ul{
+  background-color: white;
+}
+
+.nav-menu ul li{
+  font-size: 1.33rem;
+}
+
+.nav-menu ul li:hover{
+  border-bottom: 0 solid white !important;
+  background-color: white !important;
+}
+
+.nav-menu button{
+  margin-left: 0 !important;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+/* .contribute {
+
+} */
+
+.contribute:after{
+  content: "|";
+  position: absolute;
+  top: 24px;
+  left: 100%;
+  color: hsla(0,0%,59%,.4);
+}
+
+/* .login-btn {
+
+} */
+
+.login-btn:after {
+  content: "\B7";
+  margin: 0 .4rem;
+}
+
+.App-body {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  height: 100vh;
+}
+
+.welcome-view {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.767rem;
+}
+
+.category-nav {
+  background-color: #db1f00;
+  width: 140px;
+  position: fixed;
+  top: 6.66rem;
+}
+
+.main {
+  background-color: #08c6a7;
+  width: 560px;
+  margin-left: 13rem;
+}
+
+.sidebar {
+  background-color: #e3e001;
+  width: 19.2rem;
+  box-sizing: border-box;
+}

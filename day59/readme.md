@@ -21,4 +21,4 @@ saga 是一个redux状态异步处理的中间件
   put 在saga内部dispatch同步action
 - 异步流程很多， 所以把他和为一处 all
 
-serviceWorker.js PWA需要 
+serviceWorker.js PWA需要

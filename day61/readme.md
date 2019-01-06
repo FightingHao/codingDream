@@ -1,0 +1,2 @@
+npm run dev
+yarn add toastr @types/toastr(toaster的类型定义文件)

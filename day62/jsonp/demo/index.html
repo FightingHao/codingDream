@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+  </div>
+  <script>
+    function ajax(params) {
+      params = params || {}
+      params.data = params.data || {}
+      var json = params.jsonp ? jsonp(params) : json(params)
+      function json(params) {
+        params.type = (params.type || 'GET').toUpperCase()
+        params.data = formateParams(params.data)
+        var xhr = null
+        if (window.XMLHttpRequest) {
+          xhr = new XMLHttpRequest()
+        } else {
+          xhr = new ActiveXObject('Microsoft.XMLHTTP')
+        }
+        xhr.onreadystatechange = function () {
+          // 不再活跃
+          if (xhr.readyState === 4) {
+            var status = xhr.status
+            if (status >= 200 && status < 300) {
+              var response = ''
+              var type = xhr.getResponseHeader('Content-Type')
+              if (type.indexOf('xml') !== -1 && xhr.responseXML) {
+                response = xhr.responseXML
+              } else if (type === 'application/json') {
+                response.JSON.parse(xhr.responseText)
+              } else {
+                response = xhr.responseText
+              }
+              params.success && params.success(response)
+            } else {
+              params.error && params.error(status)
+            }
+          }
+        }
+        if (params.type == 'GET') {
+          xhr.open(params.type, params.url + '?' + params.data, true)
+          xhr.send(null)
+        } else {
+          xhr.open(params.type, params.url, true)
+          // post 表单数据提交 需要设置请求头 头部信息最早到达 先告诉浏览器怎么解析
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+          xhr.send(params.data)
+        }
+      }
+
+      function formateParams(data) {
+        var arr = []
+        for (var name in data) {
+          arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]))
+        }
+        // 设置随机字符 防止数据缓存
+        arr.push('v=' + random())
+        return arr.join('$')
+      }
+      function random() {
+        return Math.floor(Math.random() * 10000 + 500)
+      }
+    }
+  </script>
+  <script>
+    // 同一个domain localhost 同port 8080
+    ajax({
+      url: '/data.json',
+      // jsonp: 'jsonpCallback',
+      data: { 'b': '异步请求' },
+      success: (res) => {
+        console.log(res)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+    /* fetch('http://localhost:3000/api')
+      .then(data => data.json())
+      .then(data => {
+        console.log(data)
+      }) */
+  </script>
+</body>
+
+</html>

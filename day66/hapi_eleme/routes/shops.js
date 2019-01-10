@@ -1,11 +1,13 @@
 const GROUP_NAME = 'shops'
+const models = require('../models')
 
 module.exports = [
   {
     method: 'GET',
     path: `/${GROUP_NAME}`,
     handler: async (request, reply) => {
-      reply()
+      const results = await models.shops.findAll()
+      reply(results)
     },
     config: {
       tags: ['api', GROUP_NAME],

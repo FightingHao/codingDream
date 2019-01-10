@@ -1,0 +1,3 @@
+<view class="page">
+  <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">获取</button>
+</view>

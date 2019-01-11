@@ -11,4 +11,4 @@ cross-env 解决命令行不同
 3. blogs 表 sequelize-cli
 4. models
 5. routes findAll
-6. redis 数据缓存
+6. redis 数据缓存 

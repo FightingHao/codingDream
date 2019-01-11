@@ -4,6 +4,7 @@ const routesBlogs = require('./routes/blogs')
 const pluginHapiSwagger = require('./plugins/hapi-swagger')
 const pluginHapiPagination = require('./plugins/hapi-pagination')
 const pluginHapiRedis = require('./plugins/hapi-redis')
+
 require('env2')('./.env')
 const { env } = process
 const server = new Hapi.Server()

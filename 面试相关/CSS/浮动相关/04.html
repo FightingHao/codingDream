@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      background-color: #00ff21;
+      width: 500px;
+    }
+
+    .high-float {
+      float: left;
+      height: 80px;
+      line-height: 80px;
+      background-color: orangered;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    浮动元素的父元素高度塌陷
+   -->
+  <p>
+    在浮动元素之前在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，在浮动元素之前，
+    <span class="high-float">
+      浮动元素比父级元素高
+    </span>
+  </p>
+  <p>在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后在浮动元素之后</p>
+</body>
+
+</html>

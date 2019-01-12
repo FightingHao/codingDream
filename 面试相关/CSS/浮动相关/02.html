@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      background: #00ff90;
+      margin: 20px;
+      padding: 10px;
+      width: 500px;
+      height: 400px;
+    }
+
+    .rule1 {
+      float: left;
+      /* margin: -20px; */
+      margin: 10px;
+      padding: 10px;
+      background: #ff6a00;
+      width: 100px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    1. 这个例子中，box的padding是10px，浮动元素的margin是10px，合起来为20px，即浮动元素不会超过包含块的padding。
+    PS：如果想要元素超出，可以设置margin属性
+    2. 如果有多个浮动元素，后面的浮动元素的margin不会超过前面浮动元素的margin
+    简单说就是如果有多个浮动元素，浮动元素会按顺序排下来而不会发生重叠的现象。
+   -->
+  <div class="box">
+    <span class="rule1">
+      浮动元素1
+    </span>
+    <span class="rule1">
+      浮动元素2
+    </span>
+    <span class="rule1">
+      浮动元素3
+    </span>
+  </div>
+</body>
+
+</html>

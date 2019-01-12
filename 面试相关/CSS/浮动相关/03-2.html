@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      background: #00ff90;
+      padding: 10px;
+      width: 500px;
+      height: 400px;
+    }
+
+    .rule1 {
+      float: left;
+      margin: 10px;
+      padding: 10px;
+      background: #ff6a00;
+      width: 300px;
+      text-align: center;
+    }
+
+    .rule2 {
+      float: right;
+      margin: 10px;
+      padding: 10px;
+      background: #ff6a00;
+      width: 300px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    3.如果两个元素一个向左浮动，一个向右浮动，左浮动元素的marginRight不会和右浮动元素的marginLeft相邻。
+    （2）包含块的宽度小于两个浮动元素的宽度总和
+      如果包含块宽度不够高，后面的浮动元素将会向下浮动，其顶端是前面浮动元素的底端。
+   -->
+  <div class="box">
+    <span class="rule1">
+      浮动元素1
+    </span>
+    <span class="rule2">
+      浮动元素2
+    </span>
+  </div>
+</body>
+
+</html>

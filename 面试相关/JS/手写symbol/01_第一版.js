@@ -17,7 +17,7 @@
       }
     })
 
-    return result 
+    return result
   }
 
   root.SymbolRealize = SymbolRealize

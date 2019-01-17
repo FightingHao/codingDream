@@ -14,4 +14,3 @@ let d2 = Object.getOwnPropertyDescriptor(o2, "baz");
 console.log(d)// {configurable: true, enumerable: true, get: [Function: get foo],set: undefined}
 console.log(d1)//{configurable: true, enumerable: true, value: 42, writable: true}
 console.log(d2)// {value: 8675309, writable: false, enumerable: false, configurable: false}
- 

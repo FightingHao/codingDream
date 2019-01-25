@@ -34,3 +34,4 @@ Object.defineProperty(o, "conflict", {
   // }
 });
 // TypeError: Invalid property descriptor. Cannot both specify accessors and a value or writable attribute(无效的属性描述符,不能同时指定访问器和值或可写属性)
+ 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var bbb = {
+      i: 10,
+      toString: function () {
+        console.log('toString');
+        return this.i;
+      },
+      valueOf: function () {
+        console.log('valueOf');
+        return this.i;
+      }
+    }
+    alert(bbb);// 10 toString
+    alert(+bbb); // 10 valueOf
+    alert('' + bbb); // 10 valueOf
+    alert(String(bbb)); // 10 toString
+    alert(Number(bbb)); // 10 valueOf
+    alert(bbb == '10'); // true valueOf
+    alert(bbb === '10'); // false
+  </script>
+</body>
+
+</html>

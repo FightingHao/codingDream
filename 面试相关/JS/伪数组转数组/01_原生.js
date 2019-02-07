@@ -6,6 +6,6 @@ var a = {
   length: 4
 }
 
-function toArr(fakeArr) {
-  
+function toArr(fakeArr) { 
+
 }

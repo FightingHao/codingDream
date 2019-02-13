@@ -11,4 +11,4 @@ Array.prototype.duplicate = function () {
 }
 
 var newArr = a.duplicate()
-console.log(newArr)
+console.log(newArr) 

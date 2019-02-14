@@ -11,4 +11,4 @@ var result = series.reduce(function (accumulator, current) {
 }, {});
 
 console.log(JSON.stringify(result));
-// {"a1":4,"a3":2,"a5":1,"a7":1,"a4":1,"a2":1} 
+// {"a1":4,"a3":2,"a5":1,"a7":1,"a4":1,"a2":1}

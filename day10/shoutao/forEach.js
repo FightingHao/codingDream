@@ -17,5 +17,5 @@ Array.prototype.forEach = function (fn) {
 const arr = new Array(1, 2, 3)
 var a = [1, 2, 3, 4]
 a.forEach(function (item, index, array) {
-  console.log(item, index, array)
+  console.log(item, index, array) 
 })

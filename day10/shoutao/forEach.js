@@ -9,12 +9,13 @@ Array.prototype.forEach = function (fn) {
   }
   for (let index = 0; index < this.length; index++) {
     // 执行回调函数
-    fn(arr[index], index, this)
+    fn(this[index], index, this)
   }
 }
 
 
 const arr = new Array(1, 2, 3)
-arr.forEach(function (item, index, array) {
+var a = [1, 2, 3, 4]
+a.forEach(function (item, index, array) {
   console.log(item, index, array)
 })

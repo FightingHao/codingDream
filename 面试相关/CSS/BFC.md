@@ -13,6 +13,13 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。
 BFC 定义
 　　BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
 
+BFC触发条件：
+  - 根元素
+  - position: absolute / fixed
+  - float 元素
+  - display: inline-block / table
+  - overflow: !== visible
+
 BFC布局规则：
   - 内部的Box会在垂直方向，一个接一个地放置。
   - Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠

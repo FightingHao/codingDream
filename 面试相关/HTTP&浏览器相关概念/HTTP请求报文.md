@@ -1,0 +1,27 @@
+- 请求行：规定请求方式
+  - 请求方法：GET、POST、PUT、DELETE...
+  - 请求URL：http://user:pass@sub.example.com:8080/p/a/t/h?query=string#hash
+    - protocol 协议
+    - auth 人名
+      - user 用户
+      - pass 密码
+    - host 主机
+      - hostname 主机名(域名)
+      - port 端口号
+    - path 路径
+      - pathname 路径名
+      - query 查询字符串
+    - hash 哈希
+      - #hash
+  - HTTP的协议版本：HTTP/1.1
+- 请求头：请求的一些头部字段，以 key: value 的形式呈现
+  - Accept
+  - User-Agent
+  - Cookie
+  - ···
+- 空行
+  - 回车
+  - 换行
+- 请求体
+  - 文字
+  - 数据信息等

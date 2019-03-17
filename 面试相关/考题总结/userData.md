@@ -1,0 +1,1 @@
+userData 存储通过将数据写入一个UserData存储区（UserData store）来保存数据，userData将数据以XML格式保存在客户端上，UserData存储方式只适用于IE浏览器（window系统+IE）。UserData存储区保存以后，即使IE浏览器关闭或者刷新了，下一次进入该页面，数据也能够重新载入而不会丢失，也就是数据将一直存在，除 非你人为删除或者用脚本设置了该数据的失效期。userData行为提供了一个比Cookie更具有动态性和更大容量的数据结构。每页的UserData 存储区数据大小可以达到64 Kb，每个域名可以达到640 Kb。

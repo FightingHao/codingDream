@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <script>
+    function New() {
+      var Constructor = [].shift.call(arguments)
+      var obj = {}
+
+      if (typeof Constructor !== 'function') {
+        throw new Error('传参错误！')
+      }
+
+      obj.__proto__ = Constructor.prototype
+      Constructor.apply(obj, arguments)
+
+      return obj
+    }
+
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+    Person.prototype.high = 180
+    Person.prototype.sayName = function () {
+      console.log(this.name)
+    }
+
+    var zhh = New(Person, 'hao', 18)
+    console.log(zhh)
+    console.log(zhh instanceof Person)
+
+  </script> -->
+  <script src="./手写call.js"></script>
+</body>
+
+</html>

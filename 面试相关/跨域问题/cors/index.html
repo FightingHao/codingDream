@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>hello</h1>
+  <script>
+    const url = 'http://localhost:3000/data'
+    function ajax(url) {
+      let xhr = null
+      if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest()
+      } else {
+        xhr = new ActiveXObject('Microsoft.XMLHTTP')
+      }
+
+      document.cookie = 'age=18'
+      xhr.withCredentials = true
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+            console.log(xhr.response)
+            console.log(xhr.getResponseHeader('name'))
+          }
+        }
+      }
+
+      xhr.open('PUT', url, true)
+      xhr.setRequestHeader('name', 'zhao')
+      xhr.send()
+    }
+
+    ajax(url)
+  </script>
+</body>
+
+</html>

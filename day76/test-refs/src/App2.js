@@ -1,5 +1,27 @@
 import React, { Component } from 'react'
 
+class Children extends React.Component {
+  render() {
+    return <input />
+  }
+}
+
+// 在高阶组件HOC中的Forwarding Refs
+function logProps(WrappedComponent) {
+  class LogProps extends Component {
+    render() {
+      const { forwardedRef, ...rest } = this.props
+      return <WrappedComponent ref={forwardedRef} {...rest} />
+    }
+  }
+
+  return React.forwardRef((props, ref) => {
+    return <LogProps {...props} forwardedRef={ref} />
+  })
+}
+
+const LogProps = logProps(Children)
+
 class Father extends Component {
   inputRef = React.createRef()
 
@@ -10,19 +32,11 @@ class Father extends Component {
   render() {
     return (
       <div>
-        <Children ref={this.inputRef} />
+        <LogProps ref={this.inputRef} />
       </div>
     )
   }
 }
-
-// forwardRef 父组件用来获取子组件的dom元素的
-const Children = React.forwardRef((props, ref) => {
-  return (
-    <input ref={ref} />
-  )
-})
-
 
 export default class App extends Component {
   render() {

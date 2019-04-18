@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{song}}</h1>
+    <p>《{{album.name}}》是{{singer}}2005年11月发行的专辑</p>
+    <p>主打歌：{{album.theme}}</p>
+    <p>作词：{{singer}}</p>
+    为你弹奏肖邦的{{album.theme}}
+  </div>
+  <!--实现的mvvm-->
+  <script src="mvvm.js"></script>
+  <script>
+    // 写法和Vue一样
+    let mvvm = new Mvvm({
+      el: '#app',
+      data: {     // Object.defineProperty
+        song: '发如雪',
+        album: {
+          name: '十一月的萧邦',
+          theme: '夜曲'
+        },
+        singer: '周杰伦'
+      }
+    });
+
+    console.log(mvvm)
+
+  </script>
+</body>
+
+</html>

@@ -3,9 +3,9 @@ var o = {}; // 创建一个新对象
 // 在对象中添加一个属性与数据描述符的示例
 Object.defineProperty(o, "a", {
   value: 37,
-  writable: true,
-  enumerable: true,
-  configurable: true
+  writable: true, // 默认false
+  enumerable: true, // 默认false
+  configurable: true // 默认false
 });
 // 对象o拥有了属性a，值为37
 

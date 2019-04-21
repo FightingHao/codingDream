@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 100px;
+    }
+
+    .triangle-top {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid black;
+      border-left: 50px solid transparent;
+    }
+
+    .triangle-top > span {
+      position: absolute;
+      top: 2px;
+      left: -46px;
+      width: 0;
+      height: 0;
+      border-right: 46px solid transparent;
+      border-bottom: 46px solid red;
+      border-left: 46px solid transparent;
+    }
+
+    .triangle-right {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid black;
+    }
+
+    .triangle-right > span {
+      position: absolute;
+      top: -46px;
+      left: -48px;
+      width: 0;
+      height: 0;
+      border-top: 46px solid transparent;
+      border-bottom: 46px solid transparent;
+      border-left: 46px solid red;
+    }
+
+    .triangle-bottom {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 50px solid black;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    .triangle-bottom > span {
+      position: absolute;
+      top: -48px;
+      left: -46px;
+      width: 0;
+      height: 0;
+      border-top: 46px solid red;
+      border-left: 46px solid transparent;
+      border-right: 46px solid transparent;
+    }
+
+    .triangle-left {
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-right: 50px solid black;
+    }
+
+    .triangle-left > span {
+      position: absolute;
+      top: -46px;
+      left: 2px;
+      width: 0;
+      height: 0;
+      border-top: 46px solid transparent;
+      border-bottom: 46px solid transparent;
+      border-right: 46px solid red;
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="triangle-top">
+    <span></span>
+  </div>
+
+  <div class="triangle-right">
+    <span></span>
+  </div>
+
+  <div class="triangle-bottom">
+    <span></span>
+  </div>
+
+  <div class="triangle-left">
+    <span></span>
+  </div>
+</body>
+
+</html>

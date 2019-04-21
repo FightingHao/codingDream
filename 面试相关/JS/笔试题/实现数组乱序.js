@@ -1,12 +1,14 @@
 function messArr(arr) {
-  let sign = 1
+  if (!Array.isArray(arr)) {
+    throw new Error('this arguments need a array')
+  }
+  
   arr.sort((a, b) => {
-    sign = Math.random() > 0.5 ? 1 : -1
-    return sign * (a - b)
+    return (0.5 - Math.random()) * (a - b)
   })
   return arr
 }
 
 const arr = [1, 2, 3, 4, 5, 6]
-const newArr =  messArr(arr)
+const newArr = messArr(arr)
 console.log(newArr)

@@ -5,77 +5,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>圣杯布局</title>
+  <title>Document</title>
   <style>
     * {
       margin: 0;
       padding: 0;
+    }
+
+    .wrap {
+      padding: 0 100px;
+      min-width: 300px;
+    }
+
+    .left,
+    .content,
+    .right {
+      height: 100px;
+      line-height: 100px;
       text-align: center;
-    }
-
-    #root {
-      min-width: 600px;
-    }
-
-    .header, .footer {
-      height: 50px;
-      line-height: 50px;
-      background-color: #bfa;
+      float: left;
     }
 
     .content {
-      padding: 0 100px;
-      position: relative;
-    }
-
-    .main {
       width: 100%;
-      height: 100px;
-      line-height: 100px;
-      background-color: #4ba4f7;
-      float: left;
-    }
-
-    .left, .right {
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
-      background-color: red;
-      float: left;
+      background-color: #bfa;
     }
 
     .left {
-      margin-left: calc(-100% - 100px);
+      float: left;
+      position: relative;
+      left: -100px;
+      width: 100px;
+      margin-left: -100%;
+      background-color: red;
     }
 
     .right {
+      float: left;
+      position: relative;
+      right: -100px;
+      width: 100px;
       margin-left: -100px;
-      position: absolute;
-      right: 0;
+      background-color: blue;
     }
 
-    .clearfix::after, .clearfix::before {
-      content: '';
+    .clearfix::after,
+    .clearfix::before {
+      content: "";
       display: table;
       clear: both;
     }
 
     .clearfix {
-      *zoom: 1;
+      zoom: 1;
     }
   </style>
 </head>
 
 <body>
-  <main id="root">
-    <header class="header">Header</header>
-    <article class="content clearfix">
-      <article class="main">main</article>
-      <section class="left">left</section>
-      <section class="right">right</section>
-    </article>
-    <footer class="footer">Footer</footer>
-  </main>
+  <div class="wrap clearfix">
+    <div class="content">content</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
 </body>
 
 </html>

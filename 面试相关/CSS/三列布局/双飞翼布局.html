@@ -5,57 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>双飞翼布局</title>
+  <title>Document</title>
   <style>
     * {
       margin: 0;
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-    }
-
     .wrap {
-      background-color: blue;
-      min-width: 400px;
+      min-width: 300px;
     }
 
-    .content {
+    .left,
+    .content,
+    .right {
       height: 100px;
-      width: 100%;
-      background-color: red;
+      line-height: 100px;
+      text-align: center;
       float: left;
     }
 
-    .inner {
+    .middle {
       margin: 0 100px;
     }
 
-    .left, .right {
-      width: 100px;
-      height: 100px;
+    .content {
+      width: 100%;
       background-color: #bfa;
-      float: left;
     }
 
     .left {
+      float: left;
+      width: 100px;
       margin-left: -100%;
+      background-color: red;
     }
 
     .right {
+      float: left;
+      width: 100px;
       margin-left: -100px;
+      background-color: blue;
     }
 
-    .clearfix::after, .clearfix::before {
-      content: '';
+    .clearfix::after,
+    .clearfix::before {
+      content: "";
       display: table;
       clear: both;
     }
 
     .clearfix {
-      *zoom: 1;
+      zoom: 1;
     }
   </style>
 </head>
@@ -63,7 +64,7 @@
 <body>
   <div class="wrap clearfix">
     <div class="content">
-      <div class="inner">content</div>
+      <div class="middle">content</div>
     </div>
     <div class="left">left</div>
     <div class="right">right</div>

@@ -8,5 +8,4 @@ var res = Promise.resolve(1)
 console.log(res)
 res.then(data => {
   console.log(data);
-  
 })

@@ -1,3 +1,3 @@
-function name(params) {
+function symbol() {
   
 }

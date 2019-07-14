@@ -195,8 +195,8 @@ jsprim@^1.2.2:
     verror "1.10.0"
 
 lodash@^4.13.1:
-  version "4.17.11"
-  resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+  version "4.17.14"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
 
 mime-db@~1.37.0:
   version "1.37.0"

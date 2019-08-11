@@ -16,6 +16,12 @@ function Person(){};
 console.log(Object.prototype.toString.call(new Person));//[object Object]
 ```
 
+从 ES5 开始，`[[class]]` 私有属性被 Symbol.toStringTag 代替，Object.prototype.toString 的意义从命名上不再和 class 相关。我们甚至可以自定义
+```js
+var o = { [Symbol.toStringTag]: "MyObject" }
+console.log(Object.prototype.toString.call(o)); // [object MyObject]
+```
+
 > 为什么不直接用 `obj.toString()` 呢？
 ```js
 console.log("jerry".toString());//jerry

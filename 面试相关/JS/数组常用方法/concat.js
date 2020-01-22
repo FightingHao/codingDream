@@ -3,7 +3,7 @@ var arr1 = [1, 2]
 arr1.concat(3, 4)
 
 // 不改变原数组
-console.log(arr1) // [1, 2, 3, 4]
+console.log(arr1) // [1, 2]
 
 var arr2 = [1, 2]
 // 可传递数组

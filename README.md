@@ -2,6 +2,7 @@
 this is my coding dream, Go for it !!
 
 收集了一些github、掘金、思否...平台文章或小册中的精华内容，完成一些片段学习，并作总结!
+http://jxufe.co.cnki.net/Login.html?dp=&r=1580972561905
 
 ## JS篇
 ### 数据类型
